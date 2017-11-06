@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Proyecto_Web.Models.Equipo>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Participantes</h2>
+<p>
+    <a asp-action="Nuevo">Create New</a>
+</p>
+
+<h1>Tabla de Equipos</h1>
+
+    
+@using (Html.BeginForm("Index", "Equipo", FormMethod.Get))
+{
+    <p>
+        Encontrar por nombre: @Html.TextBox("bus", ViewBag.CurrentFilter as string, new { @autocomplete="off" })
+        <input type="submit" value="Buscar" />
+    </p>
+}
+<center>
+    <table class="table table-striped table-hover" id="tabla">
+        <thead>
+            <tr>
+                <th>@Html.ActionLink("Nombre", "Index", new { sortOrder = ViewBag.NameSortParm })</th>
+                <th>Gremio</th>
+                <th>Estado</th>
+                <th>Localidad</th>
+                <th>Disciplina</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>@Html.ActionLink("Nombre", "Index", new { sortOrder = ViewBag.NameSortParm })</th>
+                <th>Gremio</th>
+                <th>Estado</th>
+                <th>Localidad</th>
+                <th>Disciplina</th>
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gremio.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gremio.estado.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gremio.localidad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.disciplina.nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "getEquipo", new { item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+<p>
+    <a href="#">@Html.ActionLink("Regresar", "Index", "Administracion")</a>
+</p>

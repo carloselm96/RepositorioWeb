@@ -1,0 +1,99 @@
+﻿@using Proyecto_Web.Models
+
+@{
+    ViewData["Title"] = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Nuevo Equipo</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+<form asp-action="Nuevo" class="form-horizontal">
+    <fieldset>
+        <legend>Iniciar sesión</legend>
+        @if (ViewBag.result != null)
+        {
+            if (ViewBag.result=="Success")
+            {
+                <div class="alert alert-success alert-dismissible" id="myAlert">
+                    <a href="#" class="close">&times;</a>
+                    <strong>Insertado correctamente</strong>
+                </div>
+
+            }
+            else
+            {
+                <div class="alert alert-danger alert-dismissible" id="myAlert">
+                    <a href="#" class="close">&times;</a>
+                    <strong>No se pudo insertar</strong>
+                </div>
+
+            }
+
+        }
+        <div class="form-group">
+            <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required>
+            </div>
+        </div>
+        <div class="form-group">            
+                <label for="selectGremio" class="col-lg-2 control-label">Gremio</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="selectGremio" name="selectGremio">
+                        @foreach (var Gremio in ViewBag.gremios)
+                        {
+                            <option value="@Gremio.id">@Gremio.id</option>
+
+                        }
+                    </select>                
+               </div>
+        </div>        
+        <div class="form-group">
+            <label for="inputLocalidad" class="col-lg-2 control-label">Localidad</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control"  name="inputLocalidad" id="inputLocalidad" placeholder="Localidad" required>
+            </div>
+        </div>        
+        <div class="form-group">            
+                <label for="selectDisciplina" class="col-lg-2 control-label">Disciplina</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="selectDisciplina" name="selectDisciplina">
+                        @foreach (var Disciplina in ViewBag.disciplinas)
+                        {
+                            <option value="@Disciplina.id">@Disciplina.nombre</option>
+
+                        }
+                    </select>
+                </div>                
+        </div>       
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<div>    
+    @using (Html.BeginForm("Index", "Equipo"))
+    {   
+        <br/>        
+        <div class="col-lg-10 col-lg-offset-2">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".close").click(function () {
+            $("#myAlert").alert("close");
+        });
+    });
+</script>
