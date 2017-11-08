@@ -56,6 +56,7 @@ namespace Proyecto_Web.Controllers
             ViewBag.gremios = gremio.getGremios();            
             return View();
         }
+        
         [Authorize]
         [HttpPost]
         public IActionResult Nuevo(String inputNombre, int selectGremio, int selectDisciplina)
