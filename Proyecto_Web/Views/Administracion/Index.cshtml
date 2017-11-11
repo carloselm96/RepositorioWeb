@@ -18,33 +18,26 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">                                                
+            <ul class="nav navbar-nav">                                                                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Partidos<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Crear partido</a></li>
-                        <li><a href="#">@Html.ActionLink("Ver/Editar", "Partidos")</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Competidores<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Crear competidor</a></li>                        
-                        <li><a>@Html.ActionLink("Ver/Editar", "Participantes")</a></li>
-                    </ul>
-                </li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Participantes<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">                        
+                        <li><a>@Html.ActionLink("Nuevo Participante","Nuevo","Participante")</a></li>
+                        <li><a>@Html.ActionLink("Ver/Editar","Index", "Participante")</a></li>
+                    </ul>                   
+                </li>                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Equipos<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Crear Equipo</a></li>
-                        <li><a>@Html.ActionLink("Ver/Editar", "Index","Equipo")</a></li>
-                    </ul>
+                        <li><a>@Html.ActionLink("Nuevo Equipo", "Nuevo", "Equipo")</a></li>
+                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Equipo")</a></li>
+                    </ul>                    
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Competencias<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gremios<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Crear Equipo</a></li>
-                        <li><a>@Html.ActionLink("Ver/Editar", "Competencias")</a></li>
+                        <li><a>@Html.ActionLink("Nuevo Participante", "Nuevo", "Gremio")</a></li>
+                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Gremio")</a></li>
                     </ul>
                 </li>
             </ul>            

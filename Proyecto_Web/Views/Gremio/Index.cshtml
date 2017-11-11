@@ -5,26 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Gremio</h2>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Nuevo">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.id)
-                </th>
-                <th>
-                    Estado
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.localidad)
-                </th>
+            <th>Gremio</th>
+            <th>Estado</th>
+            <th>Localidad</th>            
             <th></th>
         </tr>
     </thead>
+    <tfoot>
+        <tr>
+            <th>Gremio</th>
+            <th>Estado</th>
+            <th>Localidad</th>
+            <th></th>
+        </tr>
+    </tfoot>
     <tbody>
 @foreach (var item in Model) {
         <tr>
@@ -46,3 +48,14 @@
 }
     </tbody>
 </table>
+
+<div>
+    @using (Html.BeginForm("Index", "Administracion"))
+    {
+        <br />
+        <div class="col-lg-10 ">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }
+
+</div>
