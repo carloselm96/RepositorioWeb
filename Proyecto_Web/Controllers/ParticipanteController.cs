@@ -32,10 +32,10 @@ namespace Proyecto_Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Nuevo(int selectEquipo, string inputFNac, string inputAM, string inputAP, string inputNombre)
+        public IActionResult Nuevo(int selectEquipo, string inputFNac, string inputAM, string inputAP, string inputNombre, int selectDisciplina)
         {
             ParticipantesContext context = HttpContext.RequestServices.GetService(typeof(ParticipantesContext)) as ParticipantesContext;
-            bool result=context.nuevoParticipante(inputNombre, inputAP, inputAM, inputFNac, selectEquipo);
+            bool result=context.nuevoParticipante(inputNombre, inputAP, inputAM, inputFNac,selectDisciplina, selectEquipo);
             if (result)
             {
                 return RedirectToAction("Nuevo", "Participante", new { result = "Success" });

@@ -13,7 +13,6 @@ namespace Proyecto_Web.Models
         public Disciplina disciplina { get; set; }        
         public string localidad { get; set; }        
         public Gremio gremio { get; set; }
-
-
+        public List<Participante> participantes { get; set; }
     }
 }

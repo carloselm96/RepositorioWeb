@@ -33,15 +33,7 @@ namespace Proyecto_Web.Controllers
             }
             return View(equipos);
         }        
-
-        [Authorize]
-        [HttpGet]
-        public IActionResult getEquipo(String Id)
-        {
-            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
-            var equipo = context.getEquipo(Id);            
-            return View(equipo);
-        }
+        
         [Authorize]
         [HttpGet]
        public IActionResult Nuevo(string result)
@@ -70,7 +62,15 @@ namespace Proyecto_Web.Controllers
             return RedirectToAction("Nuevo", "Equipo", new { result = "Fail" });
 
         }
-       
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult detallesEquipo(string id)
+        {
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            var Equipo = context.detallesEquipo(id);
+            return View(Equipo);
+        }
 
     }
 

@@ -79,7 +79,7 @@ namespace Proyecto_Web.Models.Context
             return results;
         }
 
-        public Equipo getEquipo(string id)
+        public Equipo detallesEquipo(string id)
         {
             Equipo equipo = null;
 
@@ -108,10 +108,25 @@ namespace Proyecto_Web.Models.Context
                     equipo.disciplina = new Disciplina();
                     equipo.disciplina.id = reader.GetInt16("Id_Disciplina");
                     equipo.disciplina.nombre = reader.GetString("disciplina");
-
                 }
             }
 
+            string cmdText2 = "select * from Participante where FK_equipo=@id;";                       
+
+            equipo.participantes = new List<Participante>();            
+            MySqlCommand command2 = new MySqlCommand(cmdText2, my);
+            command2.Parameters.Add(new MySqlParameter("@id", id));
+            MySqlDataReader reader2 = command2.ExecuteReader();
+
+            while (reader2.Read())
+            {
+                Participante participante = new Participante();
+                participante.nombres = reader2.GetString("Nombres");
+                participante.apellidop = reader2.GetString("Apellido_p");
+                participante.apellidom = reader2.GetString("Apellido_m");
+                equipo.participantes.Add(participante);
+            }
+            command2.Dispose();            
             my.Close();
 
             return equipo;

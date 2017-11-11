@@ -30,8 +30,8 @@ namespace Proyecto_Web.Models.Context
                 competencia.hora = reader.GetString("hora");
                 competencia.fecha = reader.GetString("Fecha");
                 competencia.disciplina = new Disciplina();
-                competencia.disciplina.id=reader.GetInt16("FK_disciplina");
-                competencia.disciplina.nombre = reader.GetString("disciplina");
+                /*competencia.disciplina.id=reader.GetInt16("FK_disciplina");
+                competencia.disciplina.nombre = reader.GetString("disciplina");*/
                 competencia.ubicacion = new Ubicacion();
                 competencia.ubicacion.id = reader.GetInt16("Fk_ubicacion");
                 competencia.ubicacion.nombre = reader.GetString("ubicacion");

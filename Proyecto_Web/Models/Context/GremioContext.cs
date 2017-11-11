@@ -39,5 +39,21 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return results;
         }
+        public bool nuevoGremio(int nGremio, String localidad, int estado)
+        {            
+            string cmdText = "pro_in_gremios(@nGremio,@local,@estado)";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("nGremio", nGremio));
+                command.Parameters.Add(new MySqlParameter("local", localidad));
+                command.Parameters.Add(new MySqlParameter("estado", estado));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
     }
 }

@@ -44,10 +44,10 @@ namespace Proyecto_Web.Models.Context
             return result;
         }
 
-        public bool nuevoParticipante(string nombre, string app, string apm, string fnac, int equipo)
+        public bool nuevoParticipante(string nombre, string app, string apm, string fnac, int disciplina, int equipo)
         {
             //Id_Participante, Nombres, Apellido_p, Apellido_m, Fecha_nac, FK_disciplina, FK_equipo, Status
-            string cmdText = "INSERT INTO Participante(Nombres,Apellido_p,Apellido_m,Fecha_nac,FK_equipo,FK_Disciplina) VALUES(@nombre,@app,@apm,@fnac,@equipo,1)";
+            string cmdText = "INSERT INTO Participante(Nombres,Apellido_p,Apellido_m,Fecha_nac,FK_equipo,FK_Disciplina) VALUES(@nombre,@app,@apm,@fnac,@equipo,@dis)";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             bool result = false;
@@ -58,6 +58,7 @@ namespace Proyecto_Web.Models.Context
                 command.Parameters.Add(new MySqlParameter("apm", apm));
                 command.Parameters.Add(new MySqlParameter("fnac", fnac));
                 command.Parameters.Add(new MySqlParameter("equipo", equipo));
+                command.Parameters.Add(new MySqlParameter("dis", disciplina));
                 result = command.ExecuteNonQuery() > 0 ? true : false;
             }
             my.Close();

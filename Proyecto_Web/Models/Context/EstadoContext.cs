@@ -16,7 +16,7 @@ namespace Proyecto_Web.Models.Context
         public string ConnectionString { get; set; }
         public List<Estado> getEstados()
         {
-            List<Estado> results = null;
+            List<Estado> results = new List<Estado>();
             string cmdText = "select * from estados; ";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
@@ -26,7 +26,7 @@ namespace Proyecto_Web.Models.Context
             while (reader.Read())
             {
                 Estado estado = new Estado();
-                estado.id = reader.GetInt16("Id");
+                estado.id = reader.GetInt16("Id_estados");
                 estado.nombre = reader.GetString("nombre");
                 results.Add(estado);
             }
