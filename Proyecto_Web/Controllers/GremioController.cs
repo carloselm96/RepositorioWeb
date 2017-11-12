@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models.Context;
+using Proyecto_Web.Models;
 
 namespace Proyecto_Web.Controllers
 {
@@ -39,5 +40,6 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Nuevo", "Gremio", new { result = "Fail" });            
         }
+        
     }
 }

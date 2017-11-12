@@ -4,11 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models.Context;
+using Proyecto_Web.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Web.Controllers
 {
     public class ParticipanteController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
             ParticipantesContext context = HttpContext.RequestServices.GetService(typeof(ParticipantesContext)) as ParticipantesContext;
@@ -16,6 +20,7 @@ namespace Proyecto_Web.Controllers
             return View(participantes);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Nuevo(string result)
         {
@@ -31,6 +36,7 @@ namespace Proyecto_Web.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Nuevo(int selectEquipo, string inputFNac, string inputAM, string inputAP, string inputNombre, int selectDisciplina)
         {

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Proyecto_Web.Models.Partido>
+
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+    <h2>Partidos</h2>
+    <p>
+        <a asp-action="Nuevo">Create New</a>
+    </p>
+
+    <h1>Tabla de Equipos</h1>
+
+
+    
+    <center>
+        <table class="table table-striped table-hover" id="tabla">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha y Hora</th>                    
+                    <th>Disciplina</th>
+                    <th>Contrincante 1</th>
+                    <th>Contrincante 2</th>
+                    <th>Ubicacion</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha y Hora</th>                    
+                    <th>Disciplina</th>
+                    <th>Contrincante 1</th>
+                    <th>Contrincante 2</th>
+                    <th>Ubicacion</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fecha_hora)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.disciplina.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.equipo1.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.equipo2.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ubicacion.nombre)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "detallesEquipo", new { item.id }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </center>
+    @using (Html.BeginForm("Index", "Administracion"))
+    {
+        <br />
+        <div class="col-lg-10 ">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }

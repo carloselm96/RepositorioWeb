@@ -86,5 +86,25 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return partido;
         }
+        /*pro_in_partido(IN n_fecha date,IN n_hora time,
+         * IN n_fkdisc INT ,IN n_equipo1 INT,IN n_equipo2 INT,IN n_ubicacion INT) */
+        public bool nuevoPartido(string fecha, int disciplina, int e1, int e2, int ubic)
+        {            
+            string cmdText = "pro_in_partido(@fecha,@disciplina,@e1,@e2,@ubi)";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("fecha", fecha));
+                command.Parameters.Add(new MySqlParameter("disciplina", disciplina));
+                command.Parameters.Add(new MySqlParameter("e1", e1));
+                command.Parameters.Add(new MySqlParameter("e2", e2));
+                command.Parameters.Add(new MySqlParameter("ubi", ubic));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
     }
 }
