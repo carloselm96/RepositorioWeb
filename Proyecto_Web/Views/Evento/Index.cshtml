@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Proyecto_Web.Models.Evento>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Nuevo">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de clausura</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Nombre</th>
+            <th>Fecha de inicio</th>
+            <th>Fecha de clausura</th>
+            <th></th>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modeItem => item.fecha_inicio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modeItem => item.fecha_final)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @using (Html.BeginForm("Index", "Administracion"))
+    {
+        <br />
+        <div class="col-lg-10 ">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }
+
+</div>

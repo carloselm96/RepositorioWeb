@@ -13,5 +13,6 @@ namespace Proyecto_Web.Models
         public Equipo equipo1 { get; set; }
         public Equipo equipo2 { get; set; }
         public Ubicacion ubicacion { get; set; }
+        public Evento evento { get; set; }
     }
 }

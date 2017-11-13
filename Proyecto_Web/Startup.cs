@@ -40,6 +40,7 @@ namespace Proyecto_Web
             services.Add(new ServiceDescriptor(typeof(EstadoContext), new EstadoContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(GremioContext), new GremioContext(Configuration.GetConnectionString("DefaultConnection"))));
             services.Add(new ServiceDescriptor(typeof(UbicacionContext), new UbicacionContext(Configuration.GetConnectionString("DefaultConnection"))));
+            services.Add(new ServiceDescriptor(typeof(EventoContext), new EventoContext(Configuration.GetConnectionString("DefaultConnection"))));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

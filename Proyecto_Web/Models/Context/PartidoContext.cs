@@ -40,7 +40,9 @@ namespace Proyecto_Web.Models.Context
                 partido.ubicacion.nombre = reader.GetString("ubicacion");
                 partido.ubicacion.longitud = reader.GetString("longitud");
                 partido.ubicacion.latitud = reader.GetString("Latitud");
-                //department.dept_no = reader.GetString("dept_no");                
+                partido.evento = new Evento();
+                partido.evento.id = reader.GetInt16("Id_evento");
+                partido.evento.nombre = reader.GetString("Nombre_evento");
                 result.Add(partido);
             }
             command.Dispose();
@@ -88,9 +90,9 @@ namespace Proyecto_Web.Models.Context
         }
         /*pro_in_partido(IN n_fecha date,IN n_hora time,
          * IN n_fkdisc INT ,IN n_equipo1 INT,IN n_equipo2 INT,IN n_ubicacion INT) */
-        public bool nuevoPartido(string fecha, int disciplina, int e1, int e2, int ubic)
+        public bool nuevoPartido(string fecha, int disciplina, int e1, int e2, int ubic, int eve)
         {            
-            string cmdText = "pro_in_partido(@fecha,@disciplina,@e1,@e2,@ubi)";
+            string cmdText = "pro_in_partido(@fecha,@disciplina,@e1,@e2,@ubi,@eve)";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             bool result = false;
@@ -101,6 +103,7 @@ namespace Proyecto_Web.Models.Context
                 command.Parameters.Add(new MySqlParameter("e1", e1));
                 command.Parameters.Add(new MySqlParameter("e2", e2));
                 command.Parameters.Add(new MySqlParameter("ubi", ubic));
+                command.Parameters.Add(new MySqlParameter("eve", eve));
                 result = command.ExecuteNonQuery() > 0 ? true : false;
             }
             my.Close();

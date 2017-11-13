@@ -6,46 +6,42 @@
     }
 
 
-    <h2>Partidos</h2>
+    <h1>Partidos</h1>
     <p>
         <a asp-action="Nuevo">Create New</a>
     </p>
-
-    <h1>Tabla de Equipos</h1>
+    
 
 
     
     <center>
         <table class="table table-striped table-hover" id="tabla">
             <thead>
-                <tr>
-                    <th>ID</th>
+                <tr>                    
                     <th>Fecha y Hora</th>                    
                     <th>Disciplina</th>
                     <th>Contrincante 1</th>
                     <th>Contrincante 2</th>
                     <th>Ubicacion</th>
+                    <th>Evento</th>
                     <th></th>
                 </tr>
             </thead>
             <tfoot>
-                <tr>
-                    <th>ID</th>
+                <tr>                    
                     <th>Fecha y Hora</th>                    
                     <th>Disciplina</th>
                     <th>Contrincante 1</th>
                     <th>Contrincante 2</th>
                     <th>Ubicacion</th>
+                    <th>Evento</th>
                     <th></th>
                 </tr>
             </tfoot>
             <tbody>
                 @foreach (var item in Model)
             {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.id)
-                        </td>
+                    <tr>                        
                         <td>
                             @Html.DisplayFor(modelItem => item.fecha_hora)
                         </td>
@@ -60,6 +56,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ubicacion.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.evento.nombre)
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
