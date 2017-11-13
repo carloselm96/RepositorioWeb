@@ -1,0 +1,76 @@
+﻿@model Evento
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Editar</h2>
+
+<form asp-action="Editar" class="form-horizontal">
+    <fieldset>
+        <legend>Evento</legend>
+        @if (ViewBag.result != null)
+        {
+            if (ViewBag.result == "Success")
+            {
+                <div class="alert alert-success alert-dismissible" id="myAlert">
+                    <a href="#" class="close">&times;</a>
+                    <strong>Insertado correctamente</strong>
+                </div>
+
+            }
+            else
+            {
+                <div class="alert alert-danger alert-dismissible" id="myAlert">
+                    <a href="#" class="close">&times;</a>
+                    <strong>No se pudo insertar</strong>
+                </div>
+
+            }
+
+        }
+        <div class="form-group">
+            <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" value="@Html.DisplayFor(model => model.nombre)" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputInicio" class="col-lg-2 control-label">Fecha de inicio</label>
+            <div class="col-lg-10">
+                <input type="datetime-local" class="form-control" id="inputInicio" name="inputInicio" required value="@Html.DisplayFor(model => model.fecha_inicio)"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputFinal" class="col-lg-2 control-label">Fecha de clausura</label>            
+            <div class="col-lg-10">                
+                <input type="datetime-local" class="form-control" id="inputFinal" name="inputFinal" required value="@Html.DisplayFor(model => model.fecha_final)"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <input type="text" name="id" style="visibility:hidden" value="@Html.DisplayFor(model => model.id)">
+    </fieldset>
+</form>
+
+<div>
+    @using (Html.BeginForm("Index", "Evento"))
+    {
+        <br />
+        <div class="col-lg-10 col-lg-offset-2">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".close").click(function () {
+            $("#myAlert").alert("close");
+        });
+    });
+</script>

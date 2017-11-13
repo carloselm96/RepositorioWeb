@@ -41,5 +41,31 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Nuevo", "Evento", new { result = "Failure" });
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult Editar(int id,string result)
+        {
+            if (!String.IsNullOrEmpty(result))
+            {
+                ViewBag.result = result;
+            }
+            EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
+            var evento=context.detallesEvento(id);
+            return View(evento);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Editar(int id, string inputNombre, string inputInicio, string inputFinal)
+        {
+            EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
+            bool result = context.Edit(id,inputNombre, inputInicio, inputFinal);
+            if (result)
+            {
+                return RedirectToAction("Editar", "Evento", new {id=id, result = "Success" });
+            }
+            return RedirectToAction("Editar", "Evento", new {id=id, result = "Failure" });
+        }
     }
 }

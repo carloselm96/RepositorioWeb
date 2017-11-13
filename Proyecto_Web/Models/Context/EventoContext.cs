@@ -37,6 +37,7 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return results;
         }
+
         public bool Add(String inputNombre, string inputInicio, string inputFinal)
         {
             string cmdText = "pro_in_evento(@nom,@ini,@fin)";
@@ -48,6 +49,52 @@ namespace Proyecto_Web.Models.Context
                 command.Parameters.Add(new MySqlParameter("nom", inputNombre));
                 command.Parameters.Add(new MySqlParameter("ini", inputInicio));
                 command.Parameters.Add(new MySqlParameter("fin", inputFinal));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
+
+        public Evento detallesEvento(int id)
+        {
+            Evento evento = new Evento();
+
+            string cmdText = "select * from evento where Id_evento=@id;";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("@id", id));
+
+                var reader = command.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    evento.id = reader.GetInt16("Id_evento");
+                    evento.nombre = reader.GetString("Nombre_evento");
+                    evento.fecha_inicio = reader.GetDateTime("Fecha_ini");
+                    evento.fecha_final = reader.GetDateTime("Fecha_final");
+                }
+            }                        
+            my.Close();
+            return evento;
+        }
+
+        public bool Edit(int id,string inputNombre, string inputInicio, string inputFinal)
+        {
+            string cmdText = "UPDATE evento SET Nombre_evento=@nom, Fecha_ini=@ini, Fecha_final=@fin WHERE Id_evento=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("nom", inputNombre));
+                command.Parameters.Add(new MySqlParameter("ini", inputInicio));
+                command.Parameters.Add(new MySqlParameter("fin", inputFinal));
+                command.Parameters.Add(new MySqlParameter("id", id));
                 result = command.ExecuteNonQuery() > 0 ? true : false;
             }
             my.Close();
