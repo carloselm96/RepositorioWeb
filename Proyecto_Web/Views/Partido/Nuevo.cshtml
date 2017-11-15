@@ -44,6 +44,7 @@
             <label for="selectDisciplina" class="col-lg-2 control-label">Disciplina</label>
             <div class="col-lg-10">
                 <select class="form-control" id="selectDisciplina" name="selectDisciplina" required>
+                    <option>Seleccione una disciplina</option>
                     @foreach (var Disciplina in ViewBag.disciplinas)
                     {
                         <option value="@Disciplina.id">@Disciplina.nombre</option>
@@ -55,12 +56,8 @@
         <div class="form-group">
             <label for="selectEquipo1" class="col-lg-2 control-label">Contrincante 1</label>
             <div class="col-lg-10">
-                <select class="form-control" id="selectEquipo1" name="selectEquipo1" required>
-                    @foreach (var Equipo in ViewBag.equipos)
-                    {
-                        <option value="@Equipo.id">@Equipo.nombre</option>
-
-                    }
+                <select class="form-control" id="selectEquipo1" name="selectEquipo1" required >
+                    <option>Seleccione un equipo</option>
                 </select>
             </div>
         </div>
@@ -68,11 +65,7 @@
             <label for="selectEquipo2" class="col-lg-2 control-label">Contrincante 2</label>
             <div class="col-lg-10">
                 <select class="form-control" id="selectEquipo2" name="selectEquipo2" required>
-                    @foreach (var Equipo in ViewBag.equipos)
-                    {
-                        <option value="@Equipo.id">@Equipo.nombre</option>
-
-                    }
+                    <option value="-1">Seleccione un equipo</option>
                 </select>
             </div>
         </div>
@@ -125,5 +118,43 @@
         $(".close").click(function () {
             $("#myAlert").alert("close");
         });
+    });
+</script>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $(function () {
+            $("#selectDisciplina").change(
+                function () {
+                    var url = "equipoJson";
+                    var ddlsource = "#selectDisciplina";
+                $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+                    var items = "";
+                    $("#selectEquipo2").empty(); 
+                    $("#selectEquipo1").empty();
+                    items += "<option >Selecciona un equipo</option>";
+                    $.each(data, function (i, row) {
+                        items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                    });
+                    $("#selectEquipo1").html(items);                    
+                });
+            });
+    });
+
+    $(function () {
+        $("#selectEquipo1").change(
+            function () {
+                var url = "equipoJson2";
+                var ddlsource = "#selectDisciplina";
+                var ddlsource2 = "#selectEquipo1";
+                $.getJSON(url, { id: $(ddlsource).val(), id2: $(ddlsource2).val() }, function (data) {
+                    var items = "";
+                    $("#selectEquipo2").empty();                    
+                    $.each(data, function (i, row) {
+                        items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                    });
+                    $("#selectEquipo2").html(items);                    
+                });
+            });
     });
 </script>

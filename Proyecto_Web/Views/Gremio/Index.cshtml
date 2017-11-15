@@ -10,7 +10,11 @@
     <a asp-action="Nuevo">Create New</a>
 </p>
 
-<table class="table">
+<p>
+    Encontrar por nombre:  <input type="text" id="searchInput" onkeyup="myFunction()" />
+</p>    
+
+<table class="table" id="datatable">
     <thead>
         <tr>
             <th>Gremio</th>

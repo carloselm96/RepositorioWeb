@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models.Context;
 using Microsoft.AspNetCore.Authorization;
+using Proyecto_Web.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Proyecto_Web.Controllers
 {
@@ -49,5 +51,23 @@ namespace Proyecto_Web.Controllers
             return RedirectToAction("Nuevo", "Partido", new { result = "Failure" });
         }
 
+        [HttpGet]
+        public JsonResult equipoJson(int id)
+        {
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            List<Equipo> equipos = context.GetAllEquipos();
+            equipos = equipos.Where(equipo => equipo.disciplina.id.Equals(id)).ToList();
+            return Json(new SelectList(equipos, "id", "nombre"));
+        }
+
+        [HttpGet]
+        public JsonResult equipoJson2(int id, int id2)
+        {
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            List<Equipo> equipos = context.GetAllEquipos();
+            equipos = equipos.Where(equipo => equipo.disciplina.id.Equals(id)).ToList();
+            equipos = equipos.Where(equipo => equipo.id.Equals(id2)==false).ToList();
+            return Json(new SelectList(equipos, "id", "nombre"));
+        }
     }
 }

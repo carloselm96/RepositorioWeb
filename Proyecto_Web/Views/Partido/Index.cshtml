@@ -10,12 +10,14 @@
     <p>
         <a asp-action="Nuevo">Create New</a>
     </p>
-    
+    <p>
+    Encontrar por nombre:  <input type="text" id="searchInput" onkeyup="myFunction()" />
+</p>    
 
 
     
     <center>
-        <table class="table table-striped table-hover" id="tabla">
+        <table class="table table-striped table-hover" id="datatable">
             <thead>
                 <tr>                    
                     <th>Fecha y Hora</th>                    

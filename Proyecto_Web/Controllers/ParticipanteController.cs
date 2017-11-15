@@ -48,5 +48,14 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Nuevo", "Participante", new { result = "Failure" });
         }
+        
+        [HttpGet]
+        public JsonResult postJson(int id)
+        {
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            List<Equipo> equipos = context.GetAllEquipos();
+            equipos = equipos.Where(equipo => equipo.disciplina.id.Equals(id)).ToList();
+            return Json(new SelectList(equipos, "id", "nombre")); 
+        }
     }
 }
