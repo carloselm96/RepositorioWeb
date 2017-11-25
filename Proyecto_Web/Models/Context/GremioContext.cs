@@ -17,9 +17,7 @@ namespace Proyecto_Web.Models.Context
         public List<Gremio> getGremios()
         {
             List<Gremio> results = new List<Gremio>();
-            string cmdText = "select gremios.no_gremio, gremios.nombre_loc, gremios.FK_estados, " +
-                "(select estados.Nombre from estados where gremios.FK_estados = estados.Id_estados) " +
-                "as estado from gremios where gremios.Status = 'A'; ";
+            string cmdText = "select * from view_gremios";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             MySqlCommand command = new MySqlCommand(cmdText, my);
@@ -28,7 +26,7 @@ namespace Proyecto_Web.Models.Context
             while (reader.Read())
             {
                 Gremio gremio = new Gremio();
-                gremio.id = reader.GetInt16("no_gremio");
+                gremio.id = reader.GetString("no_gremio");
                 gremio.localidad = reader.GetString("nombre_loc");
                 gremio.estado = new Estado();
                 gremio.estado.id = reader.GetInt16("FK_estados");

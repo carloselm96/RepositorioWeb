@@ -30,7 +30,7 @@ namespace Proyecto_Web.Models.Context
                 equipo.id = reader.GetInt16("Id_equipo");
                 equipo.nombre = reader.GetString("nombre_equipo");
                 equipo.gremio = new Gremio();
-                equipo.gremio.id = reader.GetInt16("num_gremio");
+                equipo.gremio.id = reader.GetString("num_gremio");
                 equipo.gremio.localidad = reader.GetString("nombre_loc");
                 equipo.gremio.estado = new Estado();                
                 equipo.gremio.estado.nombre = reader.GetString("nombre_estado");
@@ -63,7 +63,7 @@ namespace Proyecto_Web.Models.Context
                     equipo.id = reader.GetInt16("Id_equipo");
                     equipo.nombre = reader.GetString("nombre_equipo");
                     equipo.gremio = new Gremio();
-                    equipo.gremio.id = reader.GetInt16("num_gremio");
+                    equipo.gremio.id = reader.GetString("num_gremio");
                     equipo.gremio.localidad = reader.GetString("nombre_loc");
                     equipo.gremio.estado = new Estado();
                     equipo.gremio.estado.nombre = reader.GetString("nombre_estado");
@@ -101,7 +101,7 @@ namespace Proyecto_Web.Models.Context
                     equipo.id = reader.GetInt16("Id_equipo");
                     equipo.nombre = reader.GetString("nombre_equipo");
                     equipo.gremio = new Gremio();
-                    equipo.gremio.id = reader.GetInt16("num_gremio");
+                    equipo.gremio.id = reader.GetString("num_gremio");
                     equipo.gremio.localidad = reader.GetString("nombre_loc");
                     equipo.gremio.estado = new Estado();
                     equipo.gremio.estado.nombre = reader.GetString("nombre_estado");

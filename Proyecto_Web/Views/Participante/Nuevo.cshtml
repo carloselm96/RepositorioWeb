@@ -32,19 +32,19 @@
         <div class="form-group">
             <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required>
+                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required autocomplete="off">
             </div>
         </div>        
         <div class="form-group">
             <label for="inputAP" class="col-lg-2 control-label">Apellido Paterno</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputAP" name="inputAP" placeholder="Apellido Paterno" required>
+                <input type="text" class="form-control" id="inputAP" name="inputAP" placeholder="Apellido Paterno" required autocomplete="off">
             </div>
         </div>
         <div class="form-group">
             <label for="inputAM" class="col-lg-2 control-label">Apellido Materno</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputAM" name="inputAM" placeholder="Apellido Materno" required>
+                <input type="text" class="form-control" id="inputAM" name="inputAM" placeholder="Apellido Materno" required autocomplete="off">
             </div>
         </div>
         <div class="form-group">
@@ -58,6 +58,7 @@
             <div class="col-lg-10">                
                 
                 <select class="form-control" id="selectDisciplina" name="selectDisciplina">                      
+                    <option>Elegir disciplina</option>
                     @foreach (var Disciplina in ViewBag.disciplinas)
                     {
                         <option value="@Disciplina.id">@Disciplina.nombre</option>

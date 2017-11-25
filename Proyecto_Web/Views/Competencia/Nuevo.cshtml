@@ -1,0 +1,122 @@
+﻿
+@{
+    ViewData["Title"] = "Nuevo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/multiselect/multi-select.css">
+
+<form asp-action="Nuevo" class="form-horizontal">
+    <fieldset>
+        <legend>Competencia</legend>
+        @if (ViewBag.result != null)
+        {
+            if (ViewBag.result == "Success")
+            {
+                <div class="alert alert-success alert-dismissible" id="myAlert">
+                    <a href="#" class="close">&times;</a>
+                    <strong>Insertado correctamente</strong>
+                </div>
+
+            }
+            else
+            {
+                <div class="alert alert-danger alert-dismissible" id="myAlert">
+                    <a href="#" class="close">&times;</a>
+                    <strong>No se pudo insertar</strong>
+                </div>
+
+            }
+
+        }
+        <div class="form-group">
+            <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectEvento" class="col-lg-2 control-label">Evento</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectEvento" name="selectEvento">
+                    @foreach (var Evento in ViewBag.eventos)
+                    {
+                        <option value="@Evento.id">@Evento.nombre</option>
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputDescripcion" class="col-lg-2 control-label">Descripcion</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputDescripcion" name="inputDescripcion" placeholder="Nombre" required>
+            </div>
+        </div>
+        <!--
+        int selectEvento, string inputNombre, string inputDescripcion,
+        int selectUbicacion, string inputFecha, string inputHora, List<int> selectParticipantes
+        -->
+
+        <div class="form-group">
+            <label for="selectUbicacion" class="col-lg-2 control-label">Evento</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectUbicacion" name="selectUbicacion">
+                    @foreach (var Ubicacion in ViewBag.ubicaciones)
+                    {
+                        <option value="@Ubicacion.id">@Ubicacion.nombre</option>
+
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputHora" class="col-lg-2 control-label">Nombre</label>
+            <div class="col-lg-10">
+                <input type="time" name="inputHora" id="inputHora" value="11:45:00" max="22:30:00" min="10:00:00" step="1" required>
+            </div>
+        </div>        
+
+        <div class="form-group">
+            <label for="inputFecha" class="col-lg-2 control-label">Fecha</label>
+            <div class="col-lg-10">
+                <input type="date" class="form-control" id="inputFecha" name="inputFecha" required />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="selectParticipantes" class="col-lg-2 control-label">Fecha</label>
+            <div class="col-lg-10">
+                <select id='selectParticipantes' name="selectParticipantes" multiple='multiple' required>
+                    @foreach (var Participante in ViewBag.participantes)
+                    {
+                        <option value="@Participante.id">@Participante.nombres</option>
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+
+
+    <!-- start -->    
+    <!-- ends -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery-multiselect/jquery.multi-select.js"></script>
+    <script type="text/javascript">
+        // run pre selected options
+        $('#selectParticipantes').multiSelect();
+    </script>
