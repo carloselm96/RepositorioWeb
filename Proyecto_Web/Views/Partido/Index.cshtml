@@ -11,7 +11,7 @@
         <a asp-action="Nuevo">Create New</a>
     </p>
     <p>
-    Encontrar por nombre:  <input type="text" id="searchInput" onkeyup="myFunction()" />
+    Encontrar por Evento:  <input type="text" id="searchInput" onkeyup="myFunction()" />
 </p>    
 
 
@@ -19,33 +19,41 @@
     <center>
         <table class="table table-striped table-hover" id="datatable">
             <thead>
-                <tr>                    
-                    <th>Fecha y Hora</th>                    
+                <tr>                  
+                    <th>Evento</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
                     <th>Disciplina</th>
                     <th>Contrincante 1</th>
                     <th>Contrincante 2</th>
-                    <th>Ubicacion</th>
-                    <th>Evento</th>
+                    <th>Ubicacion</th>                    
                     <th></th>
                 </tr>
             </thead>
             <tfoot>
-                <tr>                    
-                    <th>Fecha y Hora</th>                    
+                <tr>        
+                    <th>Evento</th>
+                    <th>Fecha</th>                    
+                    <th>Hora</th>
                     <th>Disciplina</th>
                     <th>Contrincante 1</th>
                     <th>Contrincante 2</th>
-                    <th>Ubicacion</th>
-                    <th>Evento</th>
+                    <th>Ubicacion</th>                    
                     <th></th>
                 </tr>
             </tfoot>
             <tbody>
                 @foreach (var item in Model)
             {
-                    <tr>                        
+                    <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.fecha_hora)
+                            @Html.DisplayFor(modelItem => item.evento.nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.hora)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.disciplina.nombre)
@@ -58,10 +66,7 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ubicacion.nombre)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.evento.nombre)
-                        </td>
+                        </td>                        
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                             @Html.ActionLink("Details", "detallesEquipo", new { item.id }) |

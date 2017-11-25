@@ -17,7 +17,7 @@ namespace Proyecto_Web.Models.Context
         public List<Competencia> getCompetencias()
         {
             List<Competencia> result = new List<Competencia>();
-            string cmdText = "select * from consulta_competencia";
+            string cmdText = "select * from consulta_competencia";            
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             MySqlCommand command = new MySqlCommand(cmdText, my);
@@ -28,16 +28,16 @@ namespace Proyecto_Web.Models.Context
                 competencia.id = reader.GetInt16("Id_competencia");
                 competencia.nombre = reader.GetString("Nombre");
                 competencia.hora = reader.GetString("hora");
-                competencia.fecha = reader.GetString("Fecha");
-                competencia.disciplina = new Disciplina();
-                /*competencia.disciplina.id=reader.GetInt16("FK_disciplina");
-                competencia.disciplina.nombre = reader.GetString("disciplina");*/
+                competencia.fecha = reader.GetDateTime("Fecha").ToString("dd-mm-yyyy");
+                competencia.disciplina = new Disciplina();                
                 competencia.ubicacion = new Ubicacion();
                 competencia.ubicacion.id = reader.GetInt16("Fk_ubicacion");
                 competencia.ubicacion.nombre = reader.GetString("ubicacion");
                 result.Add(competencia);
             }
             command.Dispose();
+
+
             my.Close();
             return result;
         }

@@ -26,7 +26,8 @@ namespace Proyecto_Web.Models.Context
             {
                 Partido partido = new Partido(); // Id_partido, Fecha, Hora, FK_disciplina, Nombre, contrincante1, contrincante2, Equipo1, Equipo2, Ubicacion
                 partido.id = reader.GetInt16("Id_partido");
-                partido.fecha_hora = reader.GetDateTime("Fecha");
+                partido.fecha = reader.GetDateTime("Fecha").ToString("dd-mm-yyyy");
+                partido.hora = reader.GetString("Hora");
                 partido.disciplina = new Disciplina();
                 partido.disciplina.id = reader.GetInt16("FK_disciplina");
                 partido.disciplina.nombre = reader.GetString("Nombre");
@@ -68,8 +69,8 @@ namespace Proyecto_Web.Models.Context
                 if (reader.HasRows)
                 {
                     partido.id = reader.GetInt16("Id_partido");
-                    partido.fecha_hora = DateTime.Parse(reader.GetString("Fecha"), System.Globalization.CultureInfo.InvariantCulture);
-                    partido.disciplina = new Disciplina();
+                    partido.fecha = reader.GetDateTime("Fecha").ToString("dd-mm-yyyy");
+                    partido.hora = reader.GetString("Hora");
                     partido.disciplina.id = reader.GetInt16("FK_disciplina");
                     partido.disciplina.nombre = reader.GetString("Nombre");
                     partido.equipo1 = new Equipo();
@@ -90,15 +91,16 @@ namespace Proyecto_Web.Models.Context
         }
         /*pro_in_partido(IN n_fecha date,IN n_hora time,
          * IN n_fkdisc INT ,IN n_equipo1 INT,IN n_equipo2 INT,IN n_ubicacion INT) */
-        public bool nuevoPartido(string fecha, int disciplina, int e1, int e2, int ubic, int eve)
+        public bool nuevoPartido(string fecha,string hora, int disciplina, int e1, int e2, int ubic, int eve)
         {            
-            string cmdText = "pro_in_partido(@fecha,@disciplina,@e1,@e2,@ubi,@eve)";
+            string cmdText = "pro_in_partido(@fecha,@hora,@disciplina,@e1,@e2,@ubi,@eve)";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             bool result = false;
             using (MySqlCommand command = new MySqlCommand(cmdText, my))
             {
                 command.Parameters.Add(new MySqlParameter("fecha", fecha));
+                command.Parameters.Add(new MySqlParameter("hora", hora));
                 command.Parameters.Add(new MySqlParameter("disciplina", disciplina));
                 command.Parameters.Add(new MySqlParameter("e1", e1));
                 command.Parameters.Add(new MySqlParameter("e2", e2));

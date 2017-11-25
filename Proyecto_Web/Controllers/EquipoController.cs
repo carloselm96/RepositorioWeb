@@ -17,7 +17,7 @@ namespace Proyecto_Web.Controllers
            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             var equipos = context.GetAllEquipos();
-            if (!String.IsNullOrEmpty(bus))
+            /*if (!String.IsNullOrEmpty(bus))
             {
                 ViewBag.msg = "Entro " + bus; 
                 equipos= equipos.Where(equipo => equipo.nombre.Contains(bus)).ToList();                
@@ -30,7 +30,7 @@ namespace Proyecto_Web.Controllers
                 default:
                     equipos = equipos.OrderBy(s => s.nombre).ToList();
                     break;
-            }
+            }*/
             return View(equipos);
         }        
         

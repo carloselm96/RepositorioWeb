@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Proyecto_Web.Models.Context;
+using Proyecto_Web.Models;
 
 namespace Proyecto_Web.Controllers
 {
@@ -28,9 +29,11 @@ namespace Proyecto_Web.Controllers
             EventoContext eventos = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
             UbicacionContext ubicaciones = HttpContext.RequestServices.GetService(typeof(UbicacionContext)) as UbicacionContext;
             ParticipantesContext participantes = HttpContext.RequestServices.GetService(typeof(ParticipantesContext)) as ParticipantesContext;
+            List<Participante> lista_p= participantes.getParticipantes();
+            lista_p = lista_p.Where(x => x.disciplina.id.Equals(5)).ToList();
             ViewBag.eventos = eventos.getEventos();
             ViewBag.ubicaciones = ubicaciones.getUbicaciones();
-            ViewBag.participantes = participantes.getParticipantes();
+            ViewBag.participantes = lista_p;
             return View();
         }
 

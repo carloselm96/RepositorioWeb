@@ -5,7 +5,7 @@
 }
 
 <link rel="stylesheet" type="text/css" href="~/css/multiselect/multi-select.css">
-
+<br />
 <form asp-action="Nuevo" class="form-horizontal">
     <fieldset>
         <legend>Competencia</legend>
@@ -59,7 +59,7 @@
         -->
 
         <div class="form-group">
-            <label for="selectUbicacion" class="col-lg-2 control-label">Evento</label>
+            <label for="selectUbicacion" class="col-lg-2 control-label">Ubicacion</label>
             <div class="col-lg-10">
                 <select class="form-control" id="selectUbicacion" name="selectUbicacion">
                     @foreach (var Ubicacion in ViewBag.ubicaciones)
@@ -72,7 +72,7 @@
         </div>
 
         <div class="form-group">
-            <label for="inputHora" class="col-lg-2 control-label">Nombre</label>
+            <label for="inputHora" class="col-lg-2 control-label">Hora</label>
             <div class="col-lg-10">
                 <input type="time" name="inputHora" id="inputHora" value="11:45:00" max="22:30:00" min="10:00:00" step="1" required>
             </div>
@@ -87,7 +87,7 @@
 
 
         <div class="form-group">
-            <label for="selectParticipantes" class="col-lg-2 control-label">Fecha</label>
+            <label for="selectParticipantes" class="col-lg-2 control-label">Participantes</label>
             <div class="col-lg-10">
                 <select id='selectParticipantes' name="selectParticipantes" multiple='multiple' required>
                     @foreach (var Participante in ViewBag.participantes)
@@ -106,6 +106,15 @@
         </div>
     </fieldset>
 </form>
+<div>
+    @using (Html.BeginForm("Index", "Competencia"))
+    {
+        <br />
+        <div class="col-lg-10 col-lg-offset-2">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }
+</div>
 
 
 

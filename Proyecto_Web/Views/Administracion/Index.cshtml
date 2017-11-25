@@ -18,7 +18,21 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">                                                                
+            <ul class="nav navbar-nav">   
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Eventos<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a>@Html.ActionLink("Nuevo Evento", "Nuevo", "Evento")</a></li>
+                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Evento")</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gremios<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a>@Html.ActionLink("Nuevo Gremio", "Nuevo", "Gremio")</a></li>
+                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Gremio")</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Participantes<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">                        
@@ -32,26 +46,19 @@
                         <li><a>@Html.ActionLink("Nuevo Equipo", "Nuevo", "Equipo")</a></li>
                         <li><a>@Html.ActionLink("Ver/Editar", "Index", "Equipo")</a></li>
                     </ul>                    
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Gremios<span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a>@Html.ActionLink("Nuevo Participante", "Nuevo", "Gremio")</a></li>
-                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Gremio")</a></li>
-                    </ul>
-                </li>
+                </li>                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Partidos<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a>@Html.ActionLink("Nuevo Partido", "Nuevo", "Partido")</a></li>
                         <li><a>@Html.ActionLink("Ver/Editar", "Index", "Partido")</a></li>
                     </ul>
-                </li>
+                </li>   
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Eventos<span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Competencias<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a>@Html.ActionLink("Nuevo Partido", "Nuevo", "Evento")</a></li>
-                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Evento")</a></li>
+                        <li><a>@Html.ActionLink("Nueva Competencia", "Nuevo", "Competencia")</a></li>
+                        <li><a>@Html.ActionLink("Ver/Editar", "Index", "Competencia")</a></li>
                     </ul>
                 </li>
             </ul>            

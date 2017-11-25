@@ -1,8 +1,67 @@
-﻿
+﻿@model IEnumerable<Proyecto_Web.Models.Competencia  >
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Competencias</h2>
 
+    <p>
+        <label for="searchInput">Buscar por nombre: </label>  <input type="text" id="searchInput" onkeyup="myFunction()" />
+    </p>
+
+<center>
+    <table class="table table-striped table-hover" id="datatable">
+        <thead>
+            <tr>
+                <th>Nombre</th>                
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Ubicacion</th>                
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Ubicacion</th>
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.hora)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ubicacion.nombre)
+                    </td>                    
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "detallesEquipo", new { /*item.id*/ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+@using (Html.BeginForm("Index", "Administracion"))
+{
+    <br />
+    <div class="col-lg-10 ">
+        <button class="btn btn-default" type="submit">Regresar</button>
+    </div>
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>

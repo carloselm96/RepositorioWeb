@@ -40,10 +40,10 @@ namespace Proyecto_Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Nuevo(string inputFecha, int selectDisciplina, int selectEquipo1, int selectEquipo2, int selectUbicacion, int selectEvento)
+        public IActionResult Nuevo(string inputFecha,string inputHora, int selectDisciplina, int selectEquipo1, int selectEquipo2, int selectUbicacion, int selectEvento)
         {
             PartidoContext context = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
-            bool result = context.nuevoPartido(inputFecha, selectDisciplina, selectEquipo1, selectEquipo2, selectUbicacion, selectEvento);
+            bool result = context.nuevoPartido(inputFecha,inputHora, selectDisciplina, selectEquipo1, selectEquipo2, selectUbicacion, selectEvento);
             if (result)
             {
                 return RedirectToAction("Nuevo", "Partido", new { result = "Success" });
