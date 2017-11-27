@@ -148,5 +148,20 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+
+        public bool eliminar(int id)
+        {
+            string cmdText = "UPDATE Equipo SET Status='B' where Id_equipo=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("id", id));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
     }
 }

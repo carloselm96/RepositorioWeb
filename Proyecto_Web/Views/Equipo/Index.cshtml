@@ -13,7 +13,26 @@
 
 <h1>Tabla de Equipos</h1>
 
-    
+@if (ViewBag.result != null)
+{
+    if (ViewBag.result == "Success")
+    {
+        <div class="alert alert-success alert-dismissible" id="myAlert">
+            <a href="#" class="close">&times;</a>
+            <strong>Acción hecha correctamente</strong>
+        </div>
+
+    }
+    else
+    {
+        <div class="alert alert-danger alert-dismissible" id="myAlert">
+            <a href="#" class="close">&times;</a>
+            <strong>No se pudo ejecutar</strong>
+        </div>
+
+    }
+
+}
 
             
 <p>
@@ -64,21 +83,28 @@
                         @Html.DisplayFor(modelItem => item.disciplina.nombre)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "detallesEquipo", new { item.id }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-warning btn-sm" }) 
+                        @Html.ActionLink("Detalles", "detallesEquipo", new { item.id }, new { @class = "btn btn-info btn-sm" }) 
+                        @Html.ActionLink("Eliminar", "eliminar", new { item.id }, new { @class= "btn btn-danger btn-sm", data_toggle="confirmation"})                        
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </center>
-@using (Html.BeginForm("Index", "Administracion"))
-{
-    <br />
-        <div class="col-lg-10 ">
-            <button class="btn btn-default" type="submit">Regresar</button>
-        </div>
-}
+
+<br />
+@Html.ActionLink("Regresar", "Index", "Administracion", new {  }, new { @class = "btn btn-default" })
+
+
+
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap-confirmation/bootstrap-confirmation.js"></script>
+<script>
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        container: 'body'
+    });
+</script>

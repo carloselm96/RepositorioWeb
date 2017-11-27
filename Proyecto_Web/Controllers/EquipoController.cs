@@ -16,21 +16,7 @@ namespace Proyecto_Web.Controllers
         {   
            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            var equipos = context.GetAllEquipos();
-            /*if (!String.IsNullOrEmpty(bus))
-            {
-                ViewBag.msg = "Entro " + bus; 
-                equipos= equipos.Where(equipo => equipo.nombre.Contains(bus)).ToList();                
-            }
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    equipos = equipos.OrderByDescending(s => s.nombre).ToList();
-                    break;                
-                default:
-                    equipos = equipos.OrderBy(s => s.nombre).ToList();
-                    break;
-            }*/
+            var equipos = context.GetAllEquipos();            
             return View(equipos);
         }        
         
@@ -72,6 +58,18 @@ namespace Proyecto_Web.Controllers
             return View(Equipo);
         }
 
+        [Authorize]        
+        public IActionResult eliminar(int id)
+        {
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            var result = context.eliminar(id);
+            if (result == true)
+            {
+                return RedirectToAction("Index", "Equipo", new { result = "Success" });
+            }
+            return RedirectToAction("Index", "Equipo", new { result = "Fail" });
+
+        }
     }
 
     

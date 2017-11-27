@@ -19,3 +19,21 @@ function myFunction() {
         }
     }
 }
+
+/*
+$('[data-toggle=confirmation]').confirmation({
+    rootSelector: '[data-toggle=confirmation]',
+    container: 'body'
+});
+$('[data-toggle=confirmation-singleton]').confirmation({
+    rootSelector: '[data-toggle=confirmation-singleton]',
+    container: 'body'
+});
+$('[data-toggle=confirmation-popout]').confirmation({
+    rootSelector: '[data-toggle=confirmation-popout]',
+    container: 'body'
+});
+
+$('#confirmation-delegate').confirmation({
+    selector: 'button'
+});*/
