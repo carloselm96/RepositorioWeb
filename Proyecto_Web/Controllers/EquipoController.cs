@@ -58,7 +58,35 @@ namespace Proyecto_Web.Controllers
             return View(Equipo);
         }
 
-        [Authorize]        
+        [Authorize]
+        [HttpGet]
+        public IActionResult editar(string id)
+        {
+            DisciplinaContext disciplina = HttpContext.RequestServices.GetService(typeof(DisciplinaContext)) as DisciplinaContext;
+            GremioContext gremio = HttpContext.RequestServices.GetService(typeof(GremioContext)) as GremioContext;
+            ViewBag.disciplinas = disciplina.getDisciplinas();
+            ViewBag.gremios = gremio.getGremios();
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            ViewBag.equipo = context.detallesEquipo(id);
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult editar(int id, String inputNombre, int selectGremio, int selectDisciplina)
+        {
+            EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            bool result = context.Editar(id, inputNombre, selectGremio, selectDisciplina);
+            if (result == true)
+            {
+                return RedirectToAction("detallesEquipo", "Equipo", new { id = id });
+            }
+            return RedirectToAction("detallesEquipo", "Equipo", new { id = id });            
+        }
+
+
+        [Authorize]    
+        [HttpPost]
         public IActionResult eliminar(int id)
         {
             EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
@@ -68,7 +96,6 @@ namespace Proyecto_Web.Controllers
                 return RedirectToAction("Index", "Equipo", new { result = "Success" });
             }
             return RedirectToAction("Index", "Equipo", new { result = "Fail" });
-
         }
     }
 

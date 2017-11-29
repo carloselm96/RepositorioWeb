@@ -1,6 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Microsoft.AspNetCore.Http;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,17 +40,28 @@ namespace Proyecto_Web.Models.Context
             return results;
         }
 
-        public bool Add(String inputNombre, string inputInicio, string inputFinal)
+        public bool Add(String inputNombre, string inputInicio, string inputFinal, string imagePath)
         {
-            string cmdText = "pro_in_evento(@nom,@ini,@fin)";
+
+            string cmdText1 = "Insert into Imagenes(URL) value(@url)";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText1, my))
+            {
+                command.Parameters.Add(new MySqlParameter("url", imagePath));                
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            int img = this.lastInserted();
+            string cmdText = "pro_in_evento(@nom,@ini,@fin,@img)";            
+            my.Open();            
             using (MySqlCommand command = new MySqlCommand(cmdText, my))
             {
                 command.Parameters.Add(new MySqlParameter("nom", inputNombre));
                 command.Parameters.Add(new MySqlParameter("ini", inputInicio));
                 command.Parameters.Add(new MySqlParameter("fin", inputFinal));
+                command.Parameters.Add(new MySqlParameter("img", img));
                 result = command.ExecuteNonQuery() > 0 ? true : false;
             }
             my.Close();
@@ -100,5 +113,23 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+
+        public int lastInserted()
+        {
+            string cmdText = "SELECT LAST_INSERT_ID() as id FROM imagenes;";
+            int id = -1;
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            MySqlCommand command = new MySqlCommand(cmdText, my);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                id = reader.GetInt16("id");
+            }
+            command.Dispose();
+            my.Close();
+            return id;
+        }
+
     }
 }

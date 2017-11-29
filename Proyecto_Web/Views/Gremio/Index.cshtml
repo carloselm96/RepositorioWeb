@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modeItem =>item.estado.nombre)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-warning btn-sm" })
+                @Html.ActionLink("Detalles", "detallesEquipo", new { item.id }, new { @class = "btn btn-info btn-sm" })
+                @Html.ActionLink("Eliminar", "eliminar", new { item.id }, new { @class = "btn btn-danger btn-sm", data_toggle = "confirmation" })                
             </td>
         </tr>
 }
@@ -63,3 +63,13 @@
     }
 
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap-confirmation/bootstrap-confirmation.js"></script>
+<script>
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        container: 'body'
+    });
+</script>

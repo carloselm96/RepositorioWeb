@@ -53,5 +53,20 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+
+        public bool eliminar(int nGremio)
+        {
+            string cmdText = "UPDATE gremios set Status='B' where no_gremio=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("id", nGremio));                
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
     }
 }

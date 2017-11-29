@@ -21,7 +21,7 @@ function myFunction() {
 }
 
 /*
-$('[data-toggle=confirmation]').confirmation({
+$('[data-toggle=confirmation]').confirmation({ 
     rootSelector: '[data-toggle=confirmation]',
     container: 'body'
 });

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Proyecto_Web.Models.Context;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace Proyecto_Web
 {
@@ -27,6 +29,9 @@ namespace Proyecto_Web
                     cookieOptions.LoginPath = "/Login/";
                     cookieOptions.LogoutPath = "/Logout/";
                 });
+            services.AddSingleton<IFileProvider>(
+                new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
             services.AddMvc();
             services.AddSession();
             services.AddDistributedMemoryCache();

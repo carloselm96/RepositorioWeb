@@ -5,17 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models.Context;
 using Proyecto_Web.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Proyecto_Web.Controllers
 {
     public class GremioController : Controller
     {        
+        [Authorize]
         public IActionResult Index()
         {
             GremioContext context = HttpContext.RequestServices.GetService(typeof(GremioContext)) as GremioContext;
             var gremios = context.getGremios();
             return View(gremios);
         }
+
+        [Authorize]
         [HttpGet]
         public IActionResult Nuevo(String result)
         {
@@ -28,7 +32,7 @@ namespace Proyecto_Web.Controllers
             return View();
         }
 
-
+        [Authorize]
         [HttpPost]
         public IActionResult Nuevo(int inputnGremio, string inputLocalidad, int selectEstado)
         {
@@ -40,6 +44,17 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Nuevo", "Gremio", new { result = "Fail" });            
         }
-        
+
+        [HttpGet]
+        public IActionResult Eliminar(int id)
+        {
+            GremioContext context = HttpContext.RequestServices.GetService(typeof(GremioContext)) as GremioContext;
+            bool result = context.eliminar(id);
+            if (result)
+            {
+                return RedirectToAction("Index", "Gremio");
+            }
+            return RedirectToAction("Index", "Gremio");
+        }
     }
 }

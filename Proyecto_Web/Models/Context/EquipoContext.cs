@@ -163,5 +163,24 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+
+        public bool Editar(int id,String inputNombre, int selectGremio, int selectDisciplina)
+        {
+            string cmdText = "UPDATE Equipo SET Nombre=@nombre,FK_gremio=@gremio,FK_disciplina=@disciplina WHERE Id_equipo=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("nombre", inputNombre));
+                command.Parameters.Add(new MySqlParameter("gremio", selectGremio));
+                command.Parameters.Add(new MySqlParameter("disciplina", selectDisciplina));
+                command.Parameters.Add(new MySqlParameter("id", id));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
+
     }
 }
