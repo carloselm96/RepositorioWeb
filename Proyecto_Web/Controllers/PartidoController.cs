@@ -69,5 +69,35 @@ namespace Proyecto_Web.Controllers
             equipos = equipos.Where(equipo => equipo.id.Equals(id2)==false).ToList();
             return Json(new SelectList(equipos, "id", "nombre"));
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {            
+            EquipoContext equipos = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
+            DisciplinaContext disciplinas = HttpContext.RequestServices.GetService(typeof(DisciplinaContext)) as DisciplinaContext;
+            UbicacionContext ubicaciones = HttpContext.RequestServices.GetService(typeof(UbicacionContext)) as UbicacionContext;
+            EventoContext eventos = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
+            PartidoContext partidos = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
+            ViewBag.equipos = equipos.GetAllEquipos();
+            ViewBag.disciplinas = disciplinas.getDisciplinas();
+            ViewBag.eventos = eventos.getEventos();
+            ViewBag.ubicaciones = ubicaciones.getUbicaciones();
+            ViewBag.partido = partidos.GetPartido(id);
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit( int id, string inputFecha, string inputHora, int selectDisciplina, int selectEquipo1, int selectEquipo2, int selectUbicacion, int selectEvento)
+        {
+            PartidoContext context = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
+            bool result = context.editPartido(id, inputFecha, inputHora, selectDisciplina, selectEquipo1, selectEquipo2, selectUbicacion, selectEvento);
+            if (result)
+            {
+                return RedirectToAction("Nuevo", "Partido", new { result = "Success" });
+            }
+            return RedirectToAction("Nuevo", "Partido", new { result = "Failure" });
+        }
     }
 }

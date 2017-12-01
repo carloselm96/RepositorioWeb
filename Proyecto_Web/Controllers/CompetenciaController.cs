@@ -50,7 +50,6 @@ namespace Proyecto_Web.Controllers
                 return RedirectToAction("Nuevo", "Competencia", new { result = "Success" });
             }
             return RedirectToAction("Nuevo", "Competencia", new { result = "Fail" });
-
         }
     }
 }

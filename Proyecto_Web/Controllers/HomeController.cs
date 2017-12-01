@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models;
+using Proyecto_Web.Models.Context;
 
 namespace Proyecto_Web.Controllers
 {
@@ -12,6 +13,8 @@ namespace Proyecto_Web.Controllers
     {
         public IActionResult Index()
         {
+            EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
+            ViewBag.eventos = context.getEventos();
             return View();
         }
 

@@ -18,7 +18,7 @@ namespace Proyecto_Web.Models.Context
 
         public List<Evento> getEventos()
         {
-            string cmdText = "select * from evento where Status='A' ";
+            string cmdText = "select evento.Id_evento,evento.Nombre_evento,evento.Fecha_ini,evento.Fecha_final,evento.FK_imagen, (select imagenes.URL from imagenes where Id_imagen=FK_imagen) as URL from evento where Status='A' ";
             //Id_evento, Nombre_evento, Fecha_ini, Fecha_final, FK_imagen, Status
             List<Evento> results = new List<Evento>();
             MySqlConnection my = new MySqlConnection(ConnectionString);
@@ -31,8 +31,10 @@ namespace Proyecto_Web.Models.Context
                 Evento evento = new Evento();
                 evento.id = reader.GetInt16("Id_evento");
                 evento.nombre = reader.GetString("Nombre_evento");
-                evento.fecha_inicio = reader.GetDateTime("Fecha_ini");
+                evento.fecha_inicio = reader.GetDateTime("Fecha_ini");                
                 evento.fecha_final = reader.GetDateTime("Fecha_final");
+                evento.imagen_id = reader.GetInt16("FK_imagen");
+                evento.url_imagen = reader.GetString("URL");
                 results.Add(evento);
             }
             command.Dispose();
@@ -114,6 +116,21 @@ namespace Proyecto_Web.Models.Context
             return result;
         }
 
+        public bool Eliminar(int id)
+        {
+            string cmdText = "UPDATE evento SET Status='B' WHERE Id_evento=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {                
+                command.Parameters.Add(new MySqlParameter("id", id));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
+
         public int lastInserted()
         {
             string cmdText = "SELECT LAST_INSERT_ID() as id FROM imagenes;";
@@ -130,6 +147,8 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return id;
         }
+
+
 
     }
 }

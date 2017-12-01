@@ -111,5 +111,29 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+
+        public bool editPartido(int id,string fecha, string hora, int disciplina, int e1, int e2, int ubic, int eve)
+        { //(@fecha,@hora,@disciplina,@e1,@e2,@ubi,@eve)
+            string cmdText = "UPDATE partido SET" +
+                "Fecha=@fecha, FK_disciplina=@disciplina, Equipo1=@e1, Equipo2=@e2, Ubicacion=@ubi, " +
+                "FK_evento=@eve, Hora=@hora where Id_partido=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("fecha", fecha));
+                command.Parameters.Add(new MySqlParameter("hora", hora));
+                command.Parameters.Add(new MySqlParameter("disciplina", disciplina));
+                command.Parameters.Add(new MySqlParameter("e1", e1));
+                command.Parameters.Add(new MySqlParameter("e2", e2));
+                command.Parameters.Add(new MySqlParameter("ubi", ubic));
+                command.Parameters.Add(new MySqlParameter("eve", eve));
+                command.Parameters.Add(new MySqlParameter("id", id));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
     }
 }

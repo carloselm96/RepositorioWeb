@@ -1,0 +1,157 @@
+﻿@model Partido;
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+<form asp-action="Nuevo" class="form-horizontal">
+    <fieldset>
+        <legend>Partido</legend>
+        <input type="number" style="visibility:hidden" value="@ViewBag.partido.id"/>
+        <div class="form-group">
+            <label for="inputFecha" class="col-lg-2 control-label">Fecha del partido</label>
+            <div class="col-lg-10">
+                <input type="date" class="form-control" id="inputFecha" name="inputFecha" value="@ViewBag.partido.fecha" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputHora" class="col-lg-2 control-label">Hora del partido</label>
+            <div class="col-lg-10">
+                <input type="time" class="form-control" id="inputHora" name="inputHora" required value="@ViewBag.partido.hora"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectDisciplina" class="col-lg-2 control-label">Disciplina</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectDisciplina" name="selectDisciplina" required>
+                    <option>Seleccione una disciplina</option>
+                    @foreach (var Disciplina in ViewBag.disciplinas)
+                    {
+                        if (Disciplina.id == ViewBag.partido.disciplina.id)
+                        {
+                            <option value="@Disciplina.id" selected>@Disciplina.nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@Disciplina.id">@Disciplina.nombre</option>
+
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectEquipo1" class="col-lg-2 control-label">Contrincante 1</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectEquipo1" name="selectEquipo1" required>
+                    <option>Seleccione un equipo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectEquipo2" class="col-lg-2 control-label">Contrincante 2</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectEquipo2" name="selectEquipo2" required>
+                    <option value="-1">Seleccione un equipo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectUbicacion" class="col-lg-2 control-label">Ubicacion</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectUbicacion" name="selectUbicacion" required>
+                    @foreach (var Ubicacion in ViewBag.ubicaciones)
+                    {
+                        @if (Ubicacion.id == ViewBag.partido.ubicacion.id)
+                        {
+                            <option value="@Ubicacion.id" selected>@Ubicacion.nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@Ubicacion.id">@Ubicacion.nombre</option>
+
+                        }
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="selectEvento" class="col-lg-2 control-label">Evento</label>
+            <div class="col-lg-10">
+                <select class="form-control" id="selectEvento" name="selectEvento" required>
+                    @foreach (var Evento in ViewBag.eventos)
+                    {
+                        <option value="@Evento.id">@Evento.nombre</option>
+
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<div>
+    @using (Html.BeginForm("Index", "Partido"))
+    {
+        <br />
+        <div class="col-lg-10 col-lg-offset-2">
+            <button class="btn btn-default" type="submit">Regresar</button>
+        </div>
+    }
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".close").click(function () {
+            $("#myAlert").alert("close");
+        });
+    });
+</script>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(function () {
+            $("#selectDisciplina").change(
+                function () {
+                    var url = "equipoJson";
+                    var ddlsource = "#selectDisciplina";
+                $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+                    var items = "";
+                    $("#selectEquipo2").empty();
+                    $("#selectEquipo1").empty();
+                    items += "<option >Selecciona un equipo</option>";
+                    $.each(data, function (i, row) {                       
+                        items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                    });
+                    $("#selectEquipo1").html(items);
+                });
+            });
+    });
+
+    $(function () {
+        $("#selectEquipo1").change(
+            function () {
+                var url = "equipoJson2";
+                var ddlsource = "#selectDisciplina";
+                var ddlsource2 = "#selectEquipo1";
+                $.getJSON(url, { id: $(ddlsource).val(), id2: $(ddlsource2).val() }, function (data) {
+                    var items = "";
+                    $("#selectEquipo2").empty();
+                    $.each(data, function (i, row) {
+                        items += "<option value='" + row.value + "'>" + row.text + "</option>";
+                    });
+                    $("#selectEquipo2").html(items);
+                });
+            });
+    });
+</script>

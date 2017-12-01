@@ -45,9 +45,9 @@
                     @Html.DisplayFor(modeItem => item.fecha_final)
                 </td>
                 <td>                    
-                    @Html.ActionLink("Editar", "Editar", new {  id=item.id  }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Editar", "Editar", new {  id=item.id  }, new { @class = "btn btn-warning btn-sm" }) |                    
+                    @Html.ActionLink("Eliminar", "Eliminar", new { item.id }, new { @class = "btn btn-danger btn-sm", data_toggle = "confirmation" })
+                    
                 </td>
             </tr>
         }
@@ -63,3 +63,13 @@
     }
 
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap-confirmation/bootstrap-confirmation.js"></script>
+<script>
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        container: 'body'
+    });
+</script>

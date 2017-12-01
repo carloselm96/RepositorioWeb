@@ -38,13 +38,13 @@ namespace Proyecto_Web.Controllers
             EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
             if (inputImagen == null || inputImagen.Length == 0)
                 return Content("file not selected");            
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/", inputImagen.FileName);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", inputImagen.FileName);
 
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 await inputImagen.CopyToAsync(stream);
             }
-            string filePath = path.ToString();
+            string filePath = inputImagen.FileName;
 
 
             bool result = context.Add(inputNombre, inputInicio, inputFinal, filePath);
@@ -80,6 +80,17 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Editar", "Evento", new {id=id, result = "Failure" });
         }
-        
+
+        [Authorize]        
+        public IActionResult Eliminar(int id)
+        {
+            EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
+            bool result = context.Eliminar(id);
+            if (result)
+            {
+                return RedirectToAction("Index", "Evento", new { id = id, result = "Success" });
+            }
+            return RedirectToAction("Index", "Evento", new { id = id, result = "Failure" });
+        }
     }
 }

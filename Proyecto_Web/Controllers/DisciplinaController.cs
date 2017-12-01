@@ -16,5 +16,11 @@ namespace Proyecto_Web.Controllers
             var disciplinas=context.getDisciplinas();
             return View(disciplinas);
         }
+
+        public IActionResult Disciplina(int id)
+        {
+            
+            return View();
+        }
     }
 }

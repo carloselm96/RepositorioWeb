@@ -85,9 +85,8 @@ namespace Proyecto_Web.Controllers
         }
 
 
-        [Authorize]    
-        [HttpPost]
-        public IActionResult eliminar(int id)
+        [Authorize]            
+        public IActionResult Eliminar(int id)
         {
             EquipoContext context = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
             var result = context.eliminar(id);
