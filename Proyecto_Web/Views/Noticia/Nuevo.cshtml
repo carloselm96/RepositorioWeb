@@ -4,12 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nuevo</h2>
-
-
-<form asp-action="NuevoAsync" class="form-horizontal" enctype="multipart/form-data">
-    <fieldset>
-        <legend>Evento</legend>
+<h2>Nueva noticia</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<form asp-action="Nuevo" class="form-horizontal">
+    <fieldset>        
         @if (ViewBag.result != null)
         {
             if (ViewBag.result == "Success")
@@ -31,28 +29,33 @@
 
         }
         <div class="form-group">
-            <label for="inputNombre" class="col-lg-2 control-label">Nombre</label>
+            <label for="inputNombre" class="col-lg-2 control-label">Titulo</label>
             <div class="col-lg-10">
                 <input type="text" class="form-control" id="inputNombre" name="inputNombre" placeholder="Nombre" required>
             </div>
         </div>
         <div class="form-group">
-            <label for="inputInicio" class="col-lg-2 control-label">Fecha de inicio</label>
+            <label for="inputFecha" class="col-lg-2 control-label">Fecha del partido</label>
             <div class="col-lg-10">
-                <input type="date" class="form-control" id="inputInicio" name="inputInicio" required />
+                <input type="date" class="form-control" id="inputFecha" name="inputFecha" required />
             </div>
-        </div>
+        </div>                
         <div class="form-group">
-            <label for="inputFinal" class="col-lg-2 control-label">Fecha final</label>
+            <label for="selectEvento" class="col-lg-2 control-label">Evento</label>
             <div class="col-lg-10">
-                <input type="date" class="form-control" id="inputFinal" name="inputFinal" required />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="inputImagen" class="col-lg-2 control-label">Imagen</label>
-            <div class="col-lg-10">
-                <input type="file" class="form-control" id="inputImagen" name="inputImagen" accept="image/png, .jpeg, .jpg, image/gif" required />
+                <select class="form-control" id="selectEvento" name="selectEvento" required>
+                    @foreach (var Evento in ViewBag.eventos)
+                    {
+                        <option value="@Evento.id">@Evento.nombre</option>
 
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputNoticia" class="col-lg-2 control-label">Noticia:</label>
+            <div class="col-lg-10">
+                <textarea maxlength="200" class="form-control" rows="5" id="inputNoticia" name="inputNoticia "></textarea>                
             </div>
         </div>
         <div class="form-group">
@@ -65,7 +68,7 @@
 </form>
 
 <div>
-    @using (Html.BeginForm("Index", "Evento"))
+    @using (Html.BeginForm("Index", "Noticia"))
     {
         <br />
         <div class="col-lg-10 col-lg-offset-2">
@@ -74,11 +77,3 @@
     }
 
 </div>
-
-<script>
-    $(document).ready(function () {
-        $(".close").click(function () {
-            $("#myAlert").alert("close");
-        });
-    });
-</script>

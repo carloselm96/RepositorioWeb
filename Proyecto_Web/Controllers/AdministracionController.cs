@@ -50,5 +50,6 @@ namespace Proyecto_Web.Controllers
             //List < Competencia > competenciaList= context.getCompetencias();
             return View(competencias);            
         }
+        
     }
 }

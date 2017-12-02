@@ -70,8 +70,7 @@ namespace Proyecto_Web.Controllers
             return Json(new SelectList(equipos, "id", "nombre"));
         }
 
-        [Authorize]
-        [HttpGet]
+        [Authorize]        
         public IActionResult Edit(string id)
         {            
             EquipoContext equipos = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
@@ -98,6 +97,18 @@ namespace Proyecto_Web.Controllers
                 return RedirectToAction("Nuevo", "Partido", new { result = "Success" });
             }
             return RedirectToAction("Nuevo", "Partido", new { result = "Failure" });
+        }
+
+        [Authorize]        
+        public IActionResult Delete(int id)
+        {
+            PartidoContext context = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
+            bool result = context.eliminarPartido(id);
+            if (result)
+            {
+                return RedirectToAction("Index", "Partido", new { result = "Success" });
+            }
+            return RedirectToAction("Index", "Partido", new { result = "Failure" });
         }
     }
 }

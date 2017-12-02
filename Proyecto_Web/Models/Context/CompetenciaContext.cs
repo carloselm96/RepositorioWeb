@@ -97,6 +97,65 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+
+        public Competencia GetCompetencia(int id)
+        {
+            Competencia competencia = null;
+
+            string cmdText = "select * from consulta_competencia where Id_competencia=@id;";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("@id", id));
+
+                var reader = command.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    competencia = new Competencia();
+                    competencia.id = reader.GetInt16("Id_competencia");
+                    competencia.nombre = reader.GetString("Nombre");
+                    competencia.hora = reader.GetString("hora");
+                    competencia.fecha = reader.GetDateTime("Fecha").ToString("dd-mm-yyyy");
+                    competencia.disciplina = new Disciplina();
+                    competencia.ubicacion = new Ubicacion();
+                    competencia.ubicacion.id = reader.GetInt16("Fk_ubicacion");
+                    competencia.ubicacion.nombre = reader.GetString("ubicacion");
+                }
+            }
+
+            if (competencia!=null)
+            {
+                string cmdText2 = "select Participante.Nombres," +
+                " Participante.Apellido_P,Participante.Apellido_m,equipo.Nombre" +
+                " as equipo from Participante, competencia_competidores,competencia," +
+                " equipo where FK_competencia=1" +
+                " and participante.Id_Participante=competencia_competidores.FK_competidor" +
+                " and participante.FK_equipo=equipo.Id_equipo;";
+                competencia.participantes = new List<Participante>();
+                MySqlCommand command2 = new MySqlCommand(cmdText2, my);
+                command2.Parameters.Add(new MySqlParameter("@id", id));
+                MySqlDataReader reader2 = command2.ExecuteReader();
+                while (reader2.Read())
+                {
+                    Participante participante = new Participante();
+                    participante.nombres = reader2.GetString("Nombres");
+                    participante.apellidop = reader2.GetString("Apellido_p");
+                    participante.apellidom = reader2.GetString("Apellido_m");
+                    participante.equipo = new Equipo();
+                    participante.equipo.nombre = reader2.GetString("equipo");
+                    competencia.participantes.Add(participante);
+                }
+                command2.Dispose();
+            }
+            my.Close();
+            return competencia;
+        }
+
     }
 }
 

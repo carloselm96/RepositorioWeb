@@ -31,8 +31,8 @@ namespace Proyecto_Web.Models.Context
                 Evento evento = new Evento();
                 evento.id = reader.GetInt16("Id_evento");
                 evento.nombre = reader.GetString("Nombre_evento");
-                evento.fecha_inicio = reader.GetDateTime("Fecha_ini");                
-                evento.fecha_final = reader.GetDateTime("Fecha_final");
+                evento.fecha_inicio = reader.GetDateTime("Fecha_ini").ToString("yyyy-MM-dd");                
+                evento.fecha_final = reader.GetDateTime("Fecha_final").ToString("yyyy-MM-dd");
                 evento.imagen_id = reader.GetInt16("FK_imagen");
                 evento.url_imagen = reader.GetString("URL");
                 results.Add(evento);
@@ -90,8 +90,8 @@ namespace Proyecto_Web.Models.Context
                 {
                     evento.id = reader.GetInt16("Id_evento");
                     evento.nombre = reader.GetString("Nombre_evento");
-                    evento.fecha_inicio = reader.GetDateTime("Fecha_ini");
-                    evento.fecha_final = reader.GetDateTime("Fecha_final");
+                    evento.fecha_inicio = reader.GetDateTime("Fecha_ini").ToString("yyyy-MM-dd");
+                    evento.fecha_final = reader.GetDateTime("Fecha_final").ToString("yyyy-MM-dd");
                 }
             }                        
             my.Close();
@@ -133,7 +133,7 @@ namespace Proyecto_Web.Models.Context
 
         public int lastInserted()
         {
-            string cmdText = "SELECT LAST_INSERT_ID() as id FROM imagenes;";
+            string cmdText = "SELECT MAX(id_imagen) as id FROM imagenes;";
             int id = -1;
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();

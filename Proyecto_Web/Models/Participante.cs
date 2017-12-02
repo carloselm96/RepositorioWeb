@@ -11,7 +11,7 @@ namespace Proyecto_Web.Models
         public string nombres { get; set; }
         public string apellidop { get; set; }
         public string apellidom { get; set; }
-        public DateTime fecha_nacimiento { get; set; }
+        public string fecha_nacimiento { get; set; }
         public Disciplina disciplina { get; set; }
         public Equipo equipo { get; set; }
     }

@@ -68,9 +68,8 @@
                             @Html.DisplayFor(modelItem => item.ubicacion.nombre)
                         </td>                        
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "detallesEquipo", new { item.id }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            @Html.ActionLink("Edit", "Edit", new {  id=item.id  }, new { @class = "btn btn-info btn-sm" })                            
+                            @Html.ActionLink("Delete", "Delete", new {  id=item.id  }, new { @class = "btn btn-danger btn-sm" })
                         </td>
                     </tr>
                 }

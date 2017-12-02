@@ -51,5 +51,13 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Nuevo", "Competencia", new { result = "Fail" });
         }
+
+        [Authorize]
+        public IActionResult Detalles(int id)
+        {
+            CompetenciaContext context = HttpContext.RequestServices.GetService(typeof(CompetenciaContext)) as CompetenciaContext;
+            var competencia = context.GetCompetencia(id);
+            return View(competencia);
+        }
     }
 }

@@ -46,6 +46,19 @@
             <div class="col-lg-10">
                 <select class="form-control" id="selectEquipo1" name="selectEquipo1" required>
                     <option>Seleccione un equipo</option>
+                    @foreach (var Equipo in ViewBag.equipos)
+                    {
+                        @if (Equipo.id == ViewBag.partido.equipo1.id)
+                        {
+                            <option value="@Equipo.id" selected>@Equipo.nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@Equipo.id">@Equipo.nombre</option>
+
+                        }
+
+                    }
                 </select>
             </div>
         </div>
@@ -53,7 +66,20 @@
             <label for="selectEquipo2" class="col-lg-2 control-label">Contrincante 2</label>
             <div class="col-lg-10">
                 <select class="form-control" id="selectEquipo2" name="selectEquipo2" required>
-                    <option value="-1">Seleccione un equipo</option>
+                    <option>Seleccione un equipo</option>
+                    @foreach (var Equipo in ViewBag.equipos)
+                    {
+                        @if (Equipo.id == ViewBag.partido.equipo2.id)
+                        {
+                            <option value="@Equipo.id" selected>@Equipo.nombre</option>
+                        }
+                        else
+                        {
+                            <option value="@Equipo.id">@Equipo.nombre</option>
+
+                        }
+
+                    }
                 </select>
             </div>
         </div>
@@ -123,7 +149,7 @@
     $(function () {
             $("#selectDisciplina").change(
                 function () {
-                    var url = "equipoJson";
+                    var url = "../equipoJson";
                     var ddlsource = "#selectDisciplina";
                 $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
                     var items = "";
@@ -141,7 +167,7 @@
     $(function () {
         $("#selectEquipo1").change(
             function () {
-                var url = "equipoJson2";
+                var url = "../equipoJson2";
                 var ddlsource = "#selectDisciplina";
                 var ddlsource2 = "#selectEquipo1";
                 $.getJSON(url, { id: $(ddlsource).val(), id2: $(ddlsource2).val() }, function (data) {

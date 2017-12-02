@@ -69,8 +69,9 @@ namespace Proyecto_Web.Models.Context
                 if (reader.HasRows)
                 {
                     partido.id = reader.GetInt16("Id_partido");
-                    partido.fecha = reader.GetDateTime("Fecha").ToString("dd-mm-yyyy");
+                    partido.fecha = reader.GetDateTime("Fecha").ToString("yyyy-MM-dd");
                     partido.hora = reader.GetString("Hora");
+                    partido.disciplina = new Disciplina();
                     partido.disciplina.id = reader.GetInt16("FK_disciplina");
                     partido.disciplina.nombre = reader.GetString("Nombre");
                     partido.equipo1 = new Equipo();
@@ -129,6 +130,21 @@ namespace Proyecto_Web.Models.Context
                 command.Parameters.Add(new MySqlParameter("e2", e2));
                 command.Parameters.Add(new MySqlParameter("ubi", ubic));
                 command.Parameters.Add(new MySqlParameter("eve", eve));
+                command.Parameters.Add(new MySqlParameter("id", id));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
+
+        public bool eliminarPartido(int id)
+        {
+            string cmdText = "UPDATE partido SET Status='B' where Id_partido=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
                 command.Parameters.Add(new MySqlParameter("id", id));
                 result = command.ExecuteNonQuery() > 0 ? true : false;
             }

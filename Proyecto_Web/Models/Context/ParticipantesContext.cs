@@ -29,7 +29,7 @@ namespace Proyecto_Web.Models.Context
                 participante.nombres = reader.GetString("Nombres");
                 participante.apellidop = reader.GetString("Apellido_p");
                 participante.apellidom = reader.GetString("Apellido_m");
-                participante.fecha_nacimiento = reader.GetDateTime("Fecha_nac");
+                participante.fecha_nacimiento = reader.GetDateTime("Fecha_nac").ToShortDateString();
                 participante.disciplina = new Disciplina(reader.GetInt16("FK_disciplina"), reader.GetString("disciplina"));
                 if (!reader.IsDBNull(8))
                 {

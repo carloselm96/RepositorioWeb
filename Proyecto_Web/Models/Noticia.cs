@@ -10,5 +10,7 @@ namespace Proyecto_Web.Models
         public int id { get; set; }
         public string  titulo { get; set; }
         public string fecha { get; set; }
+        public string noticia { get; set; }
+        public Evento evento { get; set; }
     }
 }

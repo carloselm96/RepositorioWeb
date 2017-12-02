@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Proyecto_Web.Models.Noticia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Noticias</h2>
+<p>
+    <a asp-action="Nuevo">Create New</a>
+</p>
+
+<p>
+    Encontrar por nombre:  <input type="text" id="searchInput" onkeyup="myFunction()" />
+</p>
+
+<center>
+    <table class="table table-striped table-hover" id="datatable">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Fecha</th>
+                <th>Evento</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Titulo</th>                
+                <th>Fecha</th>
+                <th>Evento</th>
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.titulo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.evento.nombre)
+                    </td>                    
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.id }, new { @class = "btn btn-warning btn-sm" })
+                        
+                        @Html.ActionLink("Eliminar", "Eliminar", new { item.id }, new { @class = "btn btn-danger btn-sm", data_toggle = "confirmation" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</center>
+
+<br />
+@Html.ActionLink("Regresar", "Index", "Administracion", new { }, new { @class = "btn btn-default" })
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap-confirmation/bootstrap-confirmation.js"></script>
+<script>
+    $('[data-toggle=confirmation]').confirmation({
+        rootSelector: '[data-toggle=confirmation]',
+        container: 'body'
+    });
+
+</script>
