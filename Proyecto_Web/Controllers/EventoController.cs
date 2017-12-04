@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Proyecto_Web.Models.Context;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Proyecto_Web.Models;
 
 namespace Proyecto_Web.Controllers
 {
@@ -92,5 +93,20 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Index", "Evento", new { id = id, result = "Failure" });
         }
+        public IActionResult Evento(int id)
+        {
+            EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
+            CompetenciaContext context1 = HttpContext.RequestServices.GetService(typeof(CompetenciaContext)) as CompetenciaContext;
+           PartidoContext  context2= HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
+            List < Partido > partidos= context2.getPartidos();
+            partidos = partidos.Where(x => x.evento.id == id).ToList();
+            List<Competencia> competencias = context1.getCompetencias();
+            competencias = competencias.Where(x => x.evento.id == id).ToList();
+            ViewBag.Evento = context.detallesEvento(id);
+            ViewBag.Partidos = partidos;
+            ViewBag.Competencias = competencias;
+            return View();
+        }
     }
+    
 }

@@ -33,11 +33,35 @@ namespace Proyecto_Web.Models.Context
                 competencia.ubicacion = new Ubicacion();
                 competencia.ubicacion.id = reader.GetInt16("Fk_ubicacion");
                 competencia.ubicacion.nombre = reader.GetString("ubicacion");
+                competencia.evento = new Evento();
+                competencia.evento.id = reader.GetInt16("Evento");
                 result.Add(competencia);
             }
             command.Dispose();
-
-
+            foreach (Competencia competencia in result)
+            {
+            competencia.participantes = new List<Participante>();
+                string cmdText2 = "select distinct Participante.Nombres," +
+                " Participante.Apellido_P,Participante.Apellido_m,equipo.Nombre" +
+                " as equipo from Participante, competencia_competidores,competencia," +
+                " equipo where FK_competencia=@id" +
+                " and participante.Id_Participante=competencia_competidores.FK_competidor" +
+                " and participante.FK_equipo=equipo.Id_equipo;";
+                MySqlCommand command2 = new MySqlCommand(cmdText2, my);
+                command2.Parameters.Add(new MySqlParameter("@id", competencia.id));
+                MySqlDataReader reader2 = command2.ExecuteReader();
+                while (reader2.Read())
+                {
+                    Participante participante = new Participante();
+                    participante.nombres = reader2.GetString("Nombres");
+                    participante.apellidop = reader2.GetString("Apellido_p");
+                    participante.apellidom = reader2.GetString("Apellido_m");
+                    participante.equipo = new Equipo();
+                    participante.equipo.nombre = reader2.GetString("equipo");
+                    competencia.participantes.Add(participante);
+                }
+                command2.Dispose();
+            }
             my.Close();
             return result;
         }
@@ -125,6 +149,8 @@ namespace Proyecto_Web.Models.Context
                     competencia.ubicacion = new Ubicacion();
                     competencia.ubicacion.id = reader.GetInt16("Fk_ubicacion");
                     competencia.ubicacion.nombre = reader.GetString("ubicacion");
+                    competencia.evento = new Evento();
+                    competencia.evento.id = reader.GetInt16("Evento");
                 }
             }
 

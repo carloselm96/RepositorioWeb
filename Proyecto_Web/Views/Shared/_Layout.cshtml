@@ -42,7 +42,14 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>@Html.ActionLink("Administracion", "Index", "Administracion")</li>
                         </ul>
-                    }                
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Login", "Index", "Login")</li>
+                        </ul>
+
+                    }
             </div>
         </div>
     </nav>
