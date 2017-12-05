@@ -1,83 +1,455 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
+<div id="myCarousel" class="carousel slide container-fluid" data-ride="carousel" data-interval="6000">
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<center><img src="~/images/atletismo.jpg" alt="Atletismo" class="img-responsive" style="height:auto; width:auto" /></center>
+			<div class="carousel-caption" role="option">
+				<p>
+					Disciplina de atletismo. <a href="#" class="btn btn-primary">Ver más...</a>
+				</p>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Bring in libraries from NuGet, Bower, and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div> 
-        
-        @foreach (var Evento in ViewBag.eventos)
-        {
-            <div class="item">
-                <img src="~/images/@Evento.url_imagen" alt="Microsoft Azure" class="img-responsive" />
-                <div class="carousel-caption" role="option">
-                    <p>
-                      @Evento.nombre
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
-            </div>            
-        } 
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+			</div>
+		</div>
+		<div class="item">
+			<center><img src="~/images/basketbol.jpg" alt="Basquetbol" class="img-responsive" style="height:auto; width:auto" /></center>
+			<div class="carousel-caption" role="option">
+				<p>
+					Disciplina de basquetbol. <a href="#" class="btn btn-primary">Ver más...</a>
+				</p>
+
+			</div>
+		</div>
+		<div class="item">
+			<center><img src="~/images/beisbol.jpg" alt="Beisbol" class="img-responsive" style="height:auto; width:auto" /></center>
+			<div class="carousel-caption" role="option">
+				<p>
+					Disciplina de fútbol. <a href="#" class="btn btn-primary">Ver más...</a>
+				</p>
+
+			</div>
+		</div>
+		<div class="item">
+			<center><img src="~/images/voleibol.jpg" alt="Voleibol" class="img-responsive" style="height:auto; width:auto" /></center>
+			<div class="carousel-caption" role="option">
+				<p>
+					Disciplina de voleibol. <a href="#" class="btn btn-primary">Ver más...</a>
+				</p>
+
+			</div>
+		</div>
+	</div>
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div>
+
+<div class="col-lg-12 container-fluid" style="background-color: #18bc9c;">
+	<div class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
+		<h4 style="text-align:center; color: white">
+			<br />
+			<br />
+			<b>Fecha</b>
+			<br />
+			23-27 Octubre
+			<br />
+			<br />
+		</h4>
+	</div>
+	<div class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
+		<h4 style="text-align:center; color: white">
+			<br />
+			<br />
+			<b>Sede</b>
+			<br />
+			Zapopan, Jalisco
+			<br />
+			<br />
+		</h4>
+	</div>
+	<div class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
+		<h4 style="text-align:center; color: white">
+			<br />
+			<br />
+			<b>Atletas</b>
+			<br />
+			182
+			<br />
+			<br />
+		</h4>
+	</div>
+	<div class="col-lg-3">
+		<h4 style="text-align:center; color: white">
+			<br />
+			<br />
+			<b>Gremios</b>
+			<br />
+			12
+			<br />
+			<br />
+		</h4>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<h2>NOTICIAS</h2>
+
+	<div class='row'>
+		<div class=" col-md-2"></div>
+		<div class='col-md-10'>
+			<div class="carousel slide media-carousel" id="media">
+				<div class="carousel-inner">
+					<div class="item  active">
+						<div class="row">
+							<div class="col-md-4">
+								<a class="thumbnail" href="#"><img alt="" src="~/images/beis_4.jpg"></a>
+								<h4>Beisbol Raw denim you probably haven't </h4>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail" href="#"><img alt="" src="~/images/atle_3.jpg"></a>
+								<h4>Atletismo Raw denim you probably haven't </h4>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail" href="#"><img alt="" src="~/images/futbol_3.jpg"></a>
+								<h4>Futbol Raw denim you probably haven't</h4>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-4">
+								<a class="thumbnail" href="#"><img alt="" src="~/images/futbol_3.jpg"></a>
+								<h4>Futbol Raw denim you probably haven't</h4>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail" href="#"><img alt="" src="~/images/beis_4.jpg"></a>
+								<h4>Beisbol Raw denim you probably haven't </h4>
+							</div>
+							<div class="col-md-4">
+								<a class="thumbnail" href="#"><img alt="" src="~/images/atle_3.jpg"></a>
+								<h4>Atletismo Raw denim you probably haven't </h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+				<a data-slide="next" href="#media" class="right carousel-control">›</a>
+			</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div>
+		<h2>SEDE</h2>
+		<br />
+		<br />
+	</div>
+	<div class='row'>
+		<div class=" col-md-1"></div>
+		<div class="col-md-11" style="background-color: #f39c12; color:white; padding-left:15px; padding-right: 15px; padding:15px; padding-top:5px">
+			<div class="col-md-8">
+				<br />
+				<h3><b>Zapopan, Jal.</b></h3>
+				<br />
+				<h4 style="text-align: justify">
+					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+				</h4>
+				<br />
+				<h4 style="text-align: justify">
+					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
+				</h4>
+			</div>
+			<div class="col-md-4">
+				<br />
+				<br />
+				<br />
+				<center><img alt="" src="~/images/zapopan.jpg" style="width:332px; height:auto; padding-top:6px"></center>
+				<h6>Basílica de Zapopan, Jal.</h6>
+			</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+</div>
+<h2>PROXIMOS PARTIDOS</h2>
+<br />
+<br />
+<div class="container" style="padding-top:20px;">
+
+	<div class="col-lg-1"></div>
+	<div class="col-lg-3" style="background-color: #e74c3c; color:#ffffff">
+		<center>
+			<br />
+			<br />
+			<img src="~/images/descarga (2).jpg" alt="Selec. Argentina" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px;border-color: #2c3e50" />
+			<br />
+			<h3><b>VS</b></h3>
+			<br />
+			<img src="~/images/descarga.jpg" alt="Selec. Colombia" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px;border-color: #2c3e50" />
+			<h4>
+				<br /><b>
+					Argentina VS Colombia<br />
+					Domingo 03-Dic<br />
+					19:00
+					<br />
+				</b>
+			</h4>
+		</center>
+	</div>
+	<div class="col-lg-1"></div>
+	<div class="col-lg-3" style="background-color: #e74c3c; color:#ffffff">
+		<center>
+			<br />
+			<br />
+			<img src="~/images/29_subcategoria.jpg" alt="Selec. Uruguay" class="img-responsive" style="width:140px;height:128px;padding-top:10px;padding:10px;border-color: #2c3e50" />
+			<br />
+			<h3><b>VS</b></h3>
+			<br />
+			<img src="~/images/descarga (1).jpg" alt="Selec. Brasil" class="img-responsive" style="width:140px;height:128px;padding-top:10px;padding:10px;border-color: #2c3e50" />
+			<h4>
+				<br /><b>
+					Uruguay VS Brasil<br />
+					Sábado 02-Dic<br />
+					13:00
+					<br />
+				</b>
+			</h4>
+		</center>
+	</div>
+	<div class="col-lg-1"></div>
+	<div class="col-lg-3" style="background-color: #e74c3c; color:#ffffff">
+		<center>
+			<br />
+			<br />
+			<img src="~/images/seleccion-chilena.jpg" alt="Selec. Chile" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px;" />
+			<br />
+			<h3><b>VS</b></h3>
+			<br />
+			<img src="~/images/606897_escudo_fmf.jpg" alt="Selec. Mexico" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px; border-style: solid;border-color: #2c3e50" />
+			<h4>
+				<br /><b>
+					México VS Chile<br />
+					Jueves 30-Nov<br />
+					17:00
+					<br />
+				</b>
+			</h4>
+		</center>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+</div>
+
+<h2>RESULTADOS</h2>
+<br />
+<br />
+<div class="container-fluid">
+	<div>
+		<table class="table table-striped table-hover " style="border-style: solid; border-color:white">
+			<tr>
+				<td class="success"><center><img src="~/images/atleta2.jpg" alt="Atletismo" class="img-responsive" style="width:140px;height:140px;" /></center></td>
+				<td class="warning"><center><img src="~/images/814520888.jpg" alt="Basquetbol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
+				<td style="background-color:#2c3e50"><center><img src="~/images/jugador-de-beisbol-con-el-bate-y-la-pelota_318-37264.jpg" alt="Beisbol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
+				<td class="danger"><center><img src="~/images/jugador-de-futbol-corriendo-detras-de-la-pelota_318-43308.jpg" alt="Futbol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
+				<td class="info"><center><img src="~/images/voleibol-silueta_318-53915.jpg" alt="Voleibol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
+			</tr>
+			<thead>
+				<tr>
+					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Atletismo</a></b></h4></center></th>
+					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Basquetbol</a></b></h4></center></th>
+					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Beisbol</a></b></h4></center></th>
+					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Fútbol</a></b></h4></center></th>
+					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Voleibol</a></b></h4></center></th>
+				</tr>
+			</thead>
+		</table>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+</div>
+
+<h2>GALERIA</h2>
+<br />
+<br />
+<div class="container">
+	<div class="row">
+		<div class="gallery">
+			<figure>
+				<img src="~/images/atle_2.jpg" alt="" />
+				<figcaption>Daytona Beach <small>United States</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/basquet_3.jpg" alt="" />
+				<figcaption>Териберка, gorod Severomorsk <small>Russia</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/beis_3.jpg" alt="" />
+				<figcaption>
+					Bad Pyrmont <small>Deutschland</small>
+				</figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/futbol_3.jpg" alt="" />
+				<figcaption>Yellowstone National Park <small>United States</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/volei_2.jpg" alt="" />
+				<figcaption>Quiraing, Portree <small>United Kingdom</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/basquet_3.jpg" alt="" />
+				<figcaption>Highlands <small>United States</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/basquet_1.jpg" alt="" />
+				<figcaption>Daytona Beach <small>United States</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/atle_3.jpg" alt="" />
+				<figcaption>Териберка, gorod Severomorsk <small>Russia</small></figcaption>
+			</figure>
+			<figure>
+				<img src="~/images/beis_4.jpg" alt="" />
+				<figcaption>
+					Bad Pyrmont <small>Deutschland</small>
+				</figcaption>
+			</figure>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+			<symbol id="close" viewBox="0 0 18 18">
+				<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+			S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+			l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+			c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+			s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z" />
+			</symbol>
+		</svg>
+		<script>
+					popup = {
+						init: function () {
+							$('figure').click(function () {
+								popup.open($(this));
+							});
+
+							$(document).on('click', '.popup img', function () {
+								return false;
+							}).on('click', '.popup', function () {
+								popup.close();
+							})
+						},
+						open: function ($figure) {
+							$('.gallery').addClass('pop');
+							$popup = $('<div class="popup" />').appendTo($('body'));
+							$fig = $figure.clone().appendTo($('.popup'));
+							$bg = $('<div class="bg" />').appendTo($('.popup'));
+							$close = $('<div class="close"><svg><use xlink:href="#close"></use></svg></div>').appendTo($fig);
+							$shadow = $('<div class="shadow" />').appendTo($fig);
+							src = $('img', $fig).attr('src');
+							$shadow.css({ backgroundImage: 'url(' + src + ')' });
+							$bg.css({ backgroundImage: 'url(' + src + ')' });
+							setTimeout(function () {
+								$('.popup').addClass('pop');
+							}, 10);
+						},
+						close: function () {
+							$('.gallery, .popup').removeClass('pop');
+							setTimeout(function () {
+								$('.popup').remove()
+							}, 100);
+						}
+					}
+
+					popup.init()
+
+		</script>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+	</div>
+</div>
+
+<h2>SÍGUENOS</h2>
+<br />
+<br />
+<div class="container" style="padding-top:20px;">
+
+	<div class="col-lg-1"></div>
+	<div class="col-lg-3" style="background-color: #3b5998; color:#ffffff">
+		<br />
+		<a href="https://www.facebook.com/">
+			<img src="~/images/LOGO FACEBOOK.png" alt="FACEBOOK" style="width:34px; height:35px;  " />
+		</a>
+		<br />
+		<br />
+		<br />
+		<h4 style="text-align:right"><b>FACEBOOK</b></h4>
+	</div>
+	<div class="col-lg-1"></div>
+	<div class="col-lg-3" style="background-color: #55acee; color:#ffffff">
+
+		<br /><a href="https://www.facebook.com/">
+			<img src="~/images/LOGO TWITTER.png" alt="FACEBOOK" style="width:34px; height:36px; " />
+		</a>
+		<br />
+		<br />
+		<br />
+		<h4 style="text-align:right"><b>TWITTER</b></h4>
+	</div>
+	<div class="col-lg-1"></div>
+	<div class="col-lg-3" style="background-color: #e52d27; color:#ffffff">
+		<br />
+		<a href="https://www.facebook.com/">
+			<img src="~/images/LOGO YOUTUBE.png" alt="FACEBOOK" style="width:34px; height:39px; " />
+		</a>
+		<br />
+		<br />
+		<br />
+		<h4 style="text-align:right"><b>YOUTUBE</b></h4>
+	</div>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 </div>
