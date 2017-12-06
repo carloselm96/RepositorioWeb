@@ -53,7 +53,7 @@ div .titulo_disciplina {
     margin-top: 20px;
     margin-bottom: 20px;
     position: relative;
-    opacity: 0.65;
+    opacity: 0.80;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -62,7 +62,7 @@ div .titulo_disciplina {
 
 .bgimg-1 {
     background-image: url('../images/atletismo.jpg');    
-    min-height: 300px;
+    min-height: 400px;
 }
 
 .bgimg-2 {
@@ -76,11 +76,12 @@ div .titulo_disciplina {
 }
 
 .bgimg-4 {
-    background-image: url('../images/1490954554_382195_1490956236_noticia_normal.jpg');    
+    background-image: url('../images/futbol.jpg');
+    
     min-height: 400px;
 }
-.bgimg-5 {
-    background-image: url('../images/voleibol-pony-1200x545_c-1-1200x545_c.jpg');    
+.bgimg-5 {    
+    background-image: url('../images/volei_10.jpg');
     min-height: 400px;
 }
 .caption {
