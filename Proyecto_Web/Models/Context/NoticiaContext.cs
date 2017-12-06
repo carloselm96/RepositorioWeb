@@ -18,9 +18,7 @@ namespace Proyecto_Web.Models.Context
         public List<Noticia> getNoticias()
         {
             List<Noticia> results = new List<Noticia>();
-            string cmdText = "select noticias.Id_noticias, noticias.Titulo, noticias.Fecha, " +
-                "noticias.Noticia, noticias.FK_evento, evento.Nombre_evento from noticias," +
-                "evento where noticias.FK_evento = evento.Id_evento;";
+            string cmdText = "select distinct * from consulta_noticias";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             MySqlCommand command = new MySqlCommand(cmdText, my);
@@ -36,6 +34,7 @@ namespace Proyecto_Web.Models.Context
                 noticia.evento = new Evento();
                 noticia.evento.id = reader.GetInt16("FK_evento");
                 noticia.evento.nombre = reader.GetString("Nombre_evento");
+                noticia.imagen = reader.GetString("imagen");
                 results.Add(noticia);
             }
             command.Dispose();
@@ -43,18 +42,28 @@ namespace Proyecto_Web.Models.Context
             return results;
         }
 
-        public bool nuevaNoticia(string titulo,string fecha, string noticia, int evento)
+        public bool nuevaNoticia(string titulo,string fecha, string noticia, int evento, string imagePath)
         {
-            string cmdText = "pro_in_noticias(@titulo,@fecha,@noticia,@evento)";
+            string cmdText = "pro_in_noticias(@titulo,@fecha,@noticia,@evento)";                        
             MySqlConnection my = new MySqlConnection(ConnectionString);
-            my.Open();
-            bool result = false;
+            bool result=false;
+            my.Open();            
             using (MySqlCommand command = new MySqlCommand(cmdText, my))
             {
                 command.Parameters.Add(new MySqlParameter("titulo", titulo));
                 command.Parameters.Add(new MySqlParameter("fecha", fecha));
                 command.Parameters.Add(new MySqlParameter("noticia", noticia));
-                command.Parameters.Add(new MySqlParameter("evento", evento));
+                command.Parameters.Add(new MySqlParameter("evento", evento));                
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            int last = lastInserted();
+            string cmdText1 = "Insert into Imagenes(URL,FK_noticia) value(@url,@last)";            
+            my.Open();            
+            using (MySqlCommand command = new MySqlCommand(cmdText1, my))
+            {
+                command.Parameters.Add(new MySqlParameter("url", imagePath));
+                command.Parameters.Add(new MySqlParameter("last", last));
                 result = command.ExecuteNonQuery() > 0 ? true : false;
             }
             my.Close();
@@ -83,9 +92,7 @@ namespace Proyecto_Web.Models.Context
         public Noticia getNoticia(int id)
         {
             Noticia noticia = null;
-            string cmdText = "select noticias.Id_noticias, noticias.Titulo, noticias.Fecha, " +
-                "noticias.Noticia, noticias.FK_evento, evento.Nombre_evento from noticias," +
-                "evento where noticias.FK_evento = evento.Id_evento;";
+            string cmdText = "select distinct * from consulta_noticias where Id_noticias=@id";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             using (MySqlCommand command = new MySqlCommand(cmdText, my))
@@ -107,5 +114,22 @@ namespace Proyecto_Web.Models.Context
             }
             return noticia;
         }
+        public int lastInserted()
+        {
+            string cmdText = "SELECT MAX(Id_noticias) as id FROM noticias;";
+            int id = -1;
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            MySqlCommand command = new MySqlCommand(cmdText, my);
+            MySqlDataReader reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                id = reader.GetInt16("id");
+            }
+            command.Dispose();
+            my.Close();
+            return id;
+        }
+
     }
 }

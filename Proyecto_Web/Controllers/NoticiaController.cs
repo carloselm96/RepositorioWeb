@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Proyecto_Web.Models.Context;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace Proyecto_Web.Controllers
 {
@@ -33,10 +35,20 @@ namespace Proyecto_Web.Controllers
 
         [Authorize]
         [HttpPost]
-        public IActionResult Nuevo(string inputNombre, string inputFecha, int selectEvento, string inputNoticia)
+        public async Task<IActionResult> NuevoAsync(string inputNombre, string inputFecha, int selectEvento, string inputNoticia, IFormFile inputImagen)
         {
+            if (inputImagen == null || inputImagen.Length == 0)
+                return Content("file not selected");
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images\\", inputImagen.FileName);
+            if(inputNoticia==null)
+                return Content("file not selected");
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await inputImagen.CopyToAsync(stream);
+            }
+            string filePath = inputImagen.FileName;
             NoticiaContext context = HttpContext.RequestServices.GetService(typeof(NoticiaContext)) as NoticiaContext;
-            bool result = context.nuevaNoticia(inputNombre, inputFecha, inputNoticia, selectEvento);
+            bool result = context.nuevaNoticia(inputNombre, inputFecha, inputNoticia, selectEvento, filePath);
             if (result)
             {
                 return RedirectToAction("Nuevo", "Noticia", new { result = "Success" });
