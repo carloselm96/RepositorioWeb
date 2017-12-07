@@ -108,6 +108,22 @@ h3 {
     color: #111;
 }
 
+<<<<<<< HEAD
+.noticia {
+    background-color: #3498db;
+    height: 250px
+}
+
+.tituloNoticia{
+    color: white;
+    text-align:left;
+}
+
+.contNoticia{
+    color:white;
+    text-align:justify;
+}
+=======
 /*Album*/
 
 
@@ -656,3 +672,4 @@ img {
         width: 340px;
         height: 191px
     }
+>>>>>>> 2382597734e8fff851def16f169fdee9b8111544
