@@ -1,5 +1,7 @@
 ﻿@{
 	ViewData["Title"] = "Juegos Azucareros 2017";
+	int i=0;
+
 }
 <div id="myCarousel" class="carousel slide container-fluid" data-ride="carousel" data-interval="6000">
 	<ol class="carousel-indicators">
@@ -8,43 +10,35 @@
 		<li data-target="#myCarousel" data-slide-to="2"></li>
 		<li data-target="#myCarousel" data-slide-to="3"></li>
 	</ol>
-	<div class="carousel-inner" role="listbox">
-		<div class="item active">
-			<center><img src="~/images/atletismo.jpg" alt="Atletismo" class="img-responsive" style="height:auto; width:auto" /></center>
-			<div class="carousel-caption" role="option">
-				<p>
-					Disciplina de atletismo. 
-				</p>
+	<div class="carousel-inner carousel-helper" role="listbox">
+		@foreach (Evento item in ViewBag.eventos)
+		{
+			if (i == 0)
+			{
+				<div class="item active img-helper">
+					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
+					<div class="carousel-caption" role="option">
+						<p>
+							<h2 style="color:black;">@item.nombre</h2>
+						</p>
+					</div>
+				</div>    i = i + 1;
+			}
+			else
+			{
 
-			</div>
-		</div>
-		<div class="item">
-			<center><img src="~/images/basketbol.jpg" alt="Basquetbol" class="img-responsive" style="height:auto; width:auto" /></center>
-			<div class="carousel-caption" role="option">
-				<p>
-					Disciplina de basquetbol.
-				</p>
+				<div class="item img-helper">
+					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
+					<div class="carousel-caption" role="option">
+						<p>
+							<h2 style="color:black;">@item.nombre</h2>
+						</p>
 
-			</div>
-		</div>
-		<div class="item">
-			<center><img src="~/images/beisbol.jpg" alt="Beisbol" class="img-responsive" style="height:auto; width:auto" /></center>
-			<div class="carousel-caption" role="option">
-				<p>
-					Disciplina de Beisbol.
-				</p>
+					</div>
+				</div>}
 
-			</div>
-		</div>
-		<div class="item">
-			<center><img src="~/images/voleibol.jpg" alt="Voleibol" class="img-responsive" style="height:auto; width:auto" /></center>
-			<div class="carousel-caption" role="option">
-				<p>
-					Disciplina de voleibol. 
-				</p>
+		}
 
-			</div>
-		</div>
 	</div>
 	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
 		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -59,90 +53,115 @@
 <div class="col-lg-12 container-fluid" style="background-color: #18bc9c;">
 	<div  class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
 		<h4 class="espacio_index" style="text-align:center; color: white">
-            <p>
-            <b>Nombre</b>
-            </p>
+			<p>
+			<b>Nombre</b>
+			</p>
 			
-            <p>23-27 Octubre</p>
+			<p>23-27 Octubre</p>
 			
 		</h4>
 	</div>
 	<div class="col-lg-3 " style="border-right: solid; border-right-color:white;border-width:2px;">
 		<h4 class="espacio_index" style="text-align:center; color: white">
-            <p>
-                <b>Fecha inicio</b>
-            </p>
-            <p>Zapopan,Jal</p>
+			<p>
+				<b>Fecha inicio</b>
+			</p>
+			<p>Zapopan,Jal</p>
 		</h4>
 	</div>
 	<div class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
 		<h4  class="espacio_index"style="text-align:center; color: white">
-            <p>
-                <b>Fecha clausura</b>
-            </p>
-            <p>182</p>
+			<p>
+				<b>Fecha clausura</b>
+			</p>
+			<p>182</p>
 		</h4>
 	</div>
 	<div class="col-lg-3">
 		<h4 class="espacio_index"style="text-align:center; color: white">
-            <p>
-                <b>Sede</b>
-            </p>
-            <p>12</p>
+			<p>
+				<b>Sede</b>
+			</p>
+			<p>12</p>
 		</h4>
 	</div>
 </div>
 
 
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-    <div class="titulo_index"><h2>NOTICIAS</h2></div>	
+	<div class="titulo_index"><h2>NOTICIAS</h2></div>	
 
-	<div class='row'>
-		<div class=" col-md-1"></div>
-		<div class="col-md-2 noticia">
-            <h3 class="tituloNoticia" >Titulo de la noticia</h3>
-            <br />
-            <p class="contNoticia">
-                Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua.
-            </p>
-        </div>
-        <div class=" col-md-1"></div>
-        <div class="col-md-2 noticia">
-            <h3 class="tituloNoticia">Titulo de la noticia</h3>
-            <br />
-            <p class="contNoticia">
-                Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua.
-            </p>
-        </div>
-        <div class=" col-md-1"></div>
-        <div class="col-md-2 noticia">
-            <h3 class="tituloNoticia">Titulo de la noticia</h3>
-            <br />
-            <p class="contNoticia">
-                Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua.
-            </p>
-        </div>
-        <div class=" col-md-1"></div>
-        <div class="col-md-2 noticia">
-            <h3 class="tituloNoticia">Titulo de la noticia</h3>
-            <br />
-            <p class="contNoticia">
-                Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua.
-            </p>
-        </div>
-    </div>
+	<div class="container">
+	<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner">
+
+			<div class="item active">
+				<img src="http://placehold.it/760x400/cccccc/ffffff">
+				<div class="carousel-caption">
+					<h4><a href="#">Lorem ipsum dolor sit amet consetetur sadipscing</a></h4>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+				</div>
+			</div><!-- End Item -->
+
+			<div class="item">
+				<img src="http://placehold.it/760x400/999999/cccccc">
+				<div class="carousel-caption">
+					<h4><a href="#">consetetur sadipscing elitr, sed diam nonumy eirmod</a></h4>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+				</div>
+			</div><!-- End Item -->
+
+			<div class="item">
+				<img src="http://placehold.it/760x400/dddddd/333333">
+				<div class="carousel-caption">
+					<h4><a href="#">tempor invidunt ut labore et dolore</a></h4>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+				</div>
+			</div><!-- End Item -->
+
+			<div class="item">
+				<img src="http://placehold.it/760x400/999999/cccccc">
+				<div class="carousel-caption">
+					<h4><a href="#">magna aliquyam erat, sed diam voluptua</a></h4>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+				</div>
+			</div><!-- End Item -->
+			<div class="item">
+				<img src="http://placehold.it/760x400/dddddd/333333">
+				<div class="carousel-caption">
+					<h4><a href="#">tempor invidunt ut labore et dolore magna aliquyam erat</a></h4>
+					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
+				</div>
+			</div><!-- End Item -->
+
+		</div><!-- End Carousel Inner -->
+
+		<ul class="list-group col-sm-4">
+			<li data-target="#myCarousel2" data-slide-to="0" class="list-group-item active"><h4>Lorem ipsum dolor sit amet consetetur sadipscing</h4></li>
+			<li data-target="#myCarousel2" data-slide-to="1" class="list-group-item"><h4>consetetur sadipscing elitr, sed diam nonumy eirmod</h4></li>
+			<li data-target="#myCarousel2" data-slide-to="2" class="list-group-item"><h4>tempor invidunt ut labore et dolore</h4></li>
+			<li data-target="#myCarousel2" data-slide-to="3" class="list-group-item"><h4>magna aliquyam erat, sed diam voluptua</h4></li>
+			<li data-target="#myCarousel2" data-slide-to="4" class="list-group-item"><h4>tempor invidunt ut labore et dolore magna aliquyam erat</h4></li>
+		</ul>
+		<!-- Controls -->
+		<div class="carousel-controls">
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div>
+	</div><!-- End Carousel -->
+</div>
 		
 
 
 
 <div class="container-fluid">
 
-        <div class="titulo_index"><h2>SEDE</h2></div>	
+		<div class="titulo_index"><h2>SEDE</h2></div>	
 		
 
 	<div class='row'>
@@ -326,3 +345,35 @@
 	<br />
 	<br />
 </div>
+
+<script>
+	$(document).ready(function(){
+
+	var clickEvent = false;
+	$('#myCarousel2').carousel({
+		interval:   4000
+	}).on('click', '.list-group li', function() {
+			clickEvent = true;
+			$('.list-group li').removeClass('active');
+			$(this).addClass('active');
+	}).on('slid.bs.carousel', function(e) {
+		if(!clickEvent) {
+			var count = $('.list-group').children().length -1;
+			var current = $('.list-group li.active');
+			current.removeClass('active').next().addClass('active');
+			var id = parseInt(current.data('slide-to'));
+			if(count == id) {
+				$('.list-group li').first().addClass('active');
+			}
+		}
+		clickEvent = false;
+	});
+})
+
+$(window).load(function() {
+	var boxheight = $('#myCarousel2 .carousel-inner').innerHeight();
+	var itemlength = $('#myCarousel2 .item').length;
+	var triggerheight = Math.round(boxheight/itemlength+1);
+	$('#myCarousel2 .list-group-item').outerHeight(triggerheight);
+});
+</script>

@@ -109,8 +109,12 @@ h3 {
 }
 
 
+.ntc {
+    align-content: center;
+}
+
 .noticia {
-    background-color: #3498db;
+    background-color: #3498db;    
     height: 250px
 }
 
@@ -683,3 +687,53 @@ img {
      padding-top: 20px;
  }
 
+.carousel-helper{
+    height: 300px;
+}
+
+.img-helper{
+width: 100%;
+height: 100%;
+}
+
+#myCarousel2 .carousel-caption {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+    text-shadow: none;
+}
+
+#myCarousel2 .list-group {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#myCarousel2 .list-group-item {
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+#myCarousel2 .list-group .active {
+    background-color: #eee;
+}
+
+@media (min-width: 992px) {
+    #myCarousel2 {
+        padding-right: 33.3333%;
+    }
+
+        #myCarousel2 .carousel-controls {
+            display: none;
+        }
+}
+
+@media (max-width: 991px) {
+    .carousel-caption p,
+    #myCarousel2 .list-group {
+        display: none;
+    }
+}
