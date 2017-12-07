@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html>
+﻿m<!DOCTYPE html>
+<html>    
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-flaty.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top" style="min-height:100px;">
+    <nav class="navbar navbar-default navbar-fixed-top" style="height:70px;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,13 +27,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
-                    <img src="~/images/Logo_Juegos 2.png" alt="Juegos" class="img-responsive" style="width:170px;height:auto;" />
+                    <img src="~/images/Logo_Juegos 2.png" alt="Juegos" class="img-responsive" style="width:120px;height:auto;" />
                 </a>
             </div>
-            <div class="navbar-collapse collapse" style="min-height:100px;font-size:20px">
-                <ul class="nav navbar-nav" style="min-height:100px;">
-                    <li style="min-height:100px;"><a asp-area="" asp-controller="Home" asp-action="About" style="min-height:100px;"><br />Historia</a></li>
-                    <li style="min-height:100px;"><a asp-area="" asp-controller="Home" asp-action="Contact" style="min-height:100px;"><br />Contacto</a></li>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ><a asp-area="" asp-controller="Home" asp-action="About" ><br />Historia</a></li>
+                    <li ><a asp-area="" asp-controller="Home" asp-action="Contact" ><br />Contacto</a></li>
                 </ul>
                 @if (User.Identity.IsAuthenticated)
                 {

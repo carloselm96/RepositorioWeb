@@ -4678,7 +4678,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
     .navbar-nav > li > a {
-        padding-top: 10px;
+        /*padding-top: 10px;*/
         padding-bottom: 10px;
         line-height: 21px
     }
