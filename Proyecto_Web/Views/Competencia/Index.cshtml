@@ -46,10 +46,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.ubicacion.nombre)
                     </td>                    
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Detalles", "Detalles", new { item.id }, new { @class = "btn btn-info btn-sm" }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    <td>                        
+                        @Html.ActionLink("Detalles", "Detalles y registrar puntaje", new { item.id }, new { @class = "btn btn-info btn-sm" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { item.id }, new { @class = "btn btn-info btn-sm" })
                     </td>
                 </tr>
             }

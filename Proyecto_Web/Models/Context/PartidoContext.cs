@@ -151,5 +151,21 @@ namespace Proyecto_Web.Models.Context
             my.Close();
             return result;
         }
+        public bool IngresarResultados(int id, int r1, int r2)
+        {
+            string cmdText = "UPDATE partido SET R1='@r1', R2='@r2' where Id_partido=@id";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("id", id));
+                command.Parameters.Add(new MySqlParameter("r1", r1));
+                command.Parameters.Add(new MySqlParameter("r2", r2));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;
+        }
     }
 }

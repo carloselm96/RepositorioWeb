@@ -59,5 +59,22 @@ namespace Proyecto_Web.Controllers
             var competencia = context.GetCompetencia(id);
             return View(competencia);
         }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Registrar(int idc, int idp, float puntaje)
+        {
+            CompetenciaContext context = HttpContext.RequestServices.GetService(typeof(CompetenciaContext)) as CompetenciaContext;
+            var competencia = context.RegistrarResultados(idc, idp, puntaje);
+            return RedirectToAction("Detalles", "Competencia", new { id = idc });
+        }
+
+        [Authorize]        
+        public IActionResult Delete(int id)
+        {
+            CompetenciaContext context = HttpContext.RequestServices.GetService(typeof(CompetenciaContext)) as CompetenciaContext;
+            var competencia = context.Eliminar(id);
+            return RedirectToAction("Index", "Competencia", new { id = id });
+        }
     }
 }

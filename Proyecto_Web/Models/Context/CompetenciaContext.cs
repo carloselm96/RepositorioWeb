@@ -43,7 +43,7 @@ namespace Proyecto_Web.Models.Context
             competencia.participantes = new List<Participante>();
                 string cmdText2 = "select distinct Participante.Nombres," +
                 " Participante.Apellido_P,Participante.Apellido_m,equipo.Nombre" +
-                " as equipo from Participante, competencia_competidores,competencia," +
+                " as equipo,competencia_competidores.puntaje  from Participante, competencia_competidores,competencia," +
                 " equipo where FK_competencia=@id" +
                 " and participante.Id_Participante=competencia_competidores.FK_competidor" +
                 " and participante.FK_equipo=equipo.Id_equipo;";
@@ -58,7 +58,8 @@ namespace Proyecto_Web.Models.Context
                     participante.apellidom = reader2.GetString("Apellido_m");
                     participante.equipo = new Equipo();
                     participante.equipo.nombre = reader2.GetString("equipo");
-                    competencia.participantes.Add(participante);
+                    participante.puntaje = reader2.GetInt16("puntaje");
+                    competencia.participantes.Add(participante);                    
                 }
                 command2.Dispose();
             }
@@ -156,12 +157,7 @@ namespace Proyecto_Web.Models.Context
 
             if (competencia!=null)
             {
-                string cmdText2 = "select Participante.Nombres," +
-                " Participante.Apellido_P,Participante.Apellido_m,equipo.Nombre" +
-                " as equipo from Participante, competencia_competidores,competencia," +
-                " equipo where FK_competencia=1" +
-                " and participante.Id_Participante=competencia_competidores.FK_competidor" +
-                " and participante.FK_equipo=equipo.Id_equipo;";
+                string cmdText2 = "select distinct FK_competidor, Participante.Nombres,Participante.Apellido_P,Participante.Apellido_m,equipo.Nombre, competencia_competidores.puntaje, equipo.Nombre as equipo from Participante, competencia_competidores,competencia,equipo where FK_competencia=@id and participante.Id_Participante=competencia_competidores.FK_competidor and participante.FK_equipo=equipo.Id_equipo;";
                 competencia.participantes = new List<Participante>();
                 MySqlCommand command2 = new MySqlCommand(cmdText2, my);
                 command2.Parameters.Add(new MySqlParameter("@id", id));
@@ -169,11 +165,13 @@ namespace Proyecto_Web.Models.Context
                 while (reader2.Read())
                 {
                     Participante participante = new Participante();
+                    participante.id = reader2.GetInt16("FK_competidor");
                     participante.nombres = reader2.GetString("Nombres");
                     participante.apellidop = reader2.GetString("Apellido_p");
                     participante.apellidom = reader2.GetString("Apellido_m");
                     participante.equipo = new Equipo();
                     participante.equipo.nombre = reader2.GetString("equipo");
+                    participante.puntaje = reader2.GetFloat("puntaje");
                     competencia.participantes.Add(participante);
                 }
                 command2.Dispose();
@@ -182,6 +180,39 @@ namespace Proyecto_Web.Models.Context
             return competencia;
         }
 
+
+        public bool RegistrarResultados(int idc, int idp, float puntaje)
+        {
+            string cmdText = "UPDATE competencia_competidores SET puntaje=@p where FK_competencia=@id and FK_competidor=@idp";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+            bool result = false;
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {
+                command.Parameters.Add(new MySqlParameter("p", puntaje));
+                command.Parameters.Add(new MySqlParameter("id", idc));
+                command.Parameters.Add(new MySqlParameter("idp", idp));
+                result = command.ExecuteNonQuery() > 0 ? true : false;
+            }
+            my.Close();
+            return result;            
+        }
+        public bool Eliminar(int id)
+        {
+            {
+                bool result = false;
+                string cmdText = "UPDATE competencia SET status='B' where Id_competencia=@id";
+                MySqlConnection my = new MySqlConnection(ConnectionString);
+                my.Open();
+                using (MySqlCommand command = new MySqlCommand(cmdText, my))
+                {
+                    command.Parameters.Add(new MySqlParameter("id", id));
+                    result = command.ExecuteNonQuery() > 0 ? true : false;
+                }
+                my.Close();
+                return result;
+            }
+        }
     }
 }
 

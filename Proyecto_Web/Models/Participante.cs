@@ -14,5 +14,6 @@ namespace Proyecto_Web.Models
         public string fecha_nacimiento { get; set; }
         public Disciplina disciplina { get; set; }
         public Equipo equipo { get; set; }
+        public float puntaje { get; set; }
     }
 }
