@@ -108,7 +108,7 @@ h3 {
     color: #111;
 }
 
-<<<<<<< HEAD
+
 .noticia {
     background-color: #3498db;
     height: 250px
@@ -672,4 +672,14 @@ img {
         width: 340px;
         height: 191px
     }
->>>>>>> 2382597734e8fff851def16f169fdee9b8111544
+ .espacio_index {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+ .titulo_index{
+     text-align:center;
+     width: 100%;
+     padding-bottom: 20px;
+     padding-top: 20px;
+ }
+
