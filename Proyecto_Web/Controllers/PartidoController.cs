@@ -110,5 +110,17 @@ namespace Proyecto_Web.Controllers
             }
             return RedirectToAction("Index", "Partido", new { result = "Failure" });
         }
+        [Authorize]        
+        public IActionResult Details(int id)
+        {
+            PartidoContext context = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
+            //bool result = context.GetPartido();
+            /*if (result)
+            {
+                return RedirectToAction("Index", "Partido", new { result = "Success" });
+            }*/
+            return RedirectToAction("Index", "Partido", new { result = "Failure" });
+        }
+
     }
 }

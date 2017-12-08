@@ -3,6 +3,8 @@
 	int i=0;
 
 }
+
+
 <div id="myCarousel" class="carousel slide container-fluid" data-ride="carousel" data-interval="6000">
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -19,7 +21,7 @@
 					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
 					<div class="carousel-caption" role="option">
 						<p>
-							<h2 style="color:black;">@item.nombre</h2>
+							<h2 style="color:black; text-transform: uppercase;">@item.nombre</h2>
 						</p>
 					</div>
 				</div>    i = i + 1;
@@ -31,7 +33,7 @@
 					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
 					<div class="carousel-caption" role="option">
 						<p>
-							<h2 style="color:black;">@item.nombre</h2>
+							<h2 style="color:black; text-transform: uppercase;">@item.nombre</h2>
 						</p>
 
 					</div>
@@ -49,331 +51,372 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
-<div class="titulo_index"><h2>EVENTO ACTUAL</h2></div>
-<div class="col-lg-12 container-fluid" style="background-color: #18bc9c;">
-	<div  class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
-		<h4 class="espacio_index" style="text-align:center; color: white">
-			<p>
-			<b>Nombre</b>
-			</p>
-			
-			<p>23-27 Octubre</p>
-			
-		</h4>
-	</div>
-	<div class="col-lg-3 " style="border-right: solid; border-right-color:white;border-width:2px;">
-		<h4 class="espacio_index" style="text-align:center; color: white">
-			<p>
-				<b>Fecha inicio</b>
-			</p>
-			<p>Zapopan,Jal</p>
-		</h4>
-	</div>
-	<div class="col-lg-3" style="border-right: solid; border-right-color:white;border-width:2px;">
-		<h4  class="espacio_index"style="text-align:center; color: white">
-			<p>
-				<b>Fecha clausura</b>
-			</p>
-			<p>182</p>
-		</h4>
-	</div>
-	<div class="col-lg-3">
-		<h4 class="espacio_index"style="text-align:center; color: white">
-			<p>
-				<b>Sede</b>
-			</p>
-			<p>12</p>
-		</h4>
-	</div>
-</div>
 
+<!--<header class="text-center" name="home">
+	<div class="intro-text">
+		<h1>Welcome to <strong>Helios</strong></h1>
+		<p>We are a full-service integrated creative agency</p>
+		<a href="#services-section" class="btn btn-default btn-lg page-scroll">LEARN MORE</a>
+	</div>
+</header>-->
 
-	<div class="titulo_index"><h2>NOTICIAS</h2></div>	
-
+<!--Service section-->
+<div id="services-section" class="text-center">
 	<div class="container">
-	<div id="myCarousel2" class="carousel slide" data-ride="carousel">
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-
-			<div class="item active">
-				<img src="http://placehold.it/760x400/cccccc/ffffff">
-				<div class="carousel-caption">
-					<h4><a href="#">Lorem ipsum dolor sit amet consetetur sadipscing</a></h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-				</div>
-			</div><!-- End Item -->
-
-			<div class="item">
-				<img src="http://placehold.it/760x400/999999/cccccc">
-				<div class="carousel-caption">
-					<h4><a href="#">consetetur sadipscing elitr, sed diam nonumy eirmod</a></h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-				</div>
-			</div><!-- End Item -->
-
-			<div class="item">
-				<img src="http://placehold.it/760x400/dddddd/333333">
-				<div class="carousel-caption">
-					<h4><a href="#">tempor invidunt ut labore et dolore</a></h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-				</div>
-			</div><!-- End Item -->
-
-			<div class="item">
-				<img src="http://placehold.it/760x400/999999/cccccc">
-				<div class="carousel-caption">
-					<h4><a href="#">magna aliquyam erat, sed diam voluptua</a></h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-				</div>
-			</div><!-- End Item -->
-			<div class="item">
-				<img src="http://placehold.it/760x400/dddddd/333333">
-				<div class="carousel-caption">
-					<h4><a href="#">tempor invidunt ut labore et dolore magna aliquyam erat</a></h4>
-					<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat. <a class="label label-primary" href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free Bootstrap Carousel Collection</a></p>
-				</div>
-			</div><!-- End Item -->
-
-		</div><!-- End Carousel Inner -->
-
-		<ul class="list-group col-sm-4">
-			<li data-target="#myCarousel2" data-slide-to="0" class="list-group-item active"><h4>Lorem ipsum dolor sit amet consetetur sadipscing</h4></li>
-			<li data-target="#myCarousel2" data-slide-to="1" class="list-group-item"><h4>consetetur sadipscing elitr, sed diam nonumy eirmod</h4></li>
-			<li data-target="#myCarousel2" data-slide-to="2" class="list-group-item"><h4>tempor invidunt ut labore et dolore</h4></li>
-			<li data-target="#myCarousel2" data-slide-to="3" class="list-group-item"><h4>magna aliquyam erat, sed diam voluptua</h4></li>
-			<li data-target="#myCarousel2" data-slide-to="4" class="list-group-item"><h4>tempor invidunt ut labore et dolore magna aliquyam erat</h4></li>
-		</ul>
-		<!-- Controls -->
-		<div class="carousel-controls">
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-			</a>
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-			</a>
+		<div class="section-title center">
+			<h2>DISCIPLINAS</h2>
+			<hr>
+			<div class="clearfix"></div>
+			<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus. Eleifend pellentesque natoque faucibus magna ut etiam.</p>
 		</div>
-	</div><!-- End Carousel -->
+		<div class="space"></div>
+		<div class="row">
+			<div class="col-md-1 col-sm-8 service"></div>
+			<div class="col-md-2 col-sm-8 service">
+				<i class="fa fa-desktop"></i>
+				<h4>BEISBOL</h4>
+				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+			</div>
+			<div class="col-md-2 col-sm-8 service">
+				<i class="fa fa-gears"></i>
+				<h4>FUTBOL</h4>
+				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
+			</div>
+			<div class="col-md-2 col-sm-8 service">
+				<i class="fa fa-rocket"></i>
+				<h4>BASQUETBALL</h4>
+				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+			</div>
+			<div class="col-md-2 col-sm-8 service">
+				<i class="fa fa-line-chart"></i>
+				<h4>ATLETISMO</h4>
+				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
+			</div>
+			<div class="col-md-2 col-sm-8 service">
+				<i class="fa fa-line-chart"></i>
+				<h4>VOLEIBOL</h4>
+				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
+			</div>
+		</div>
+	</div>
 </div>
-		
 
+<!-- Portfolio Section -->
+<div id="works-section">
+	<div class="container">
+		<!-- Container -->
+		<div class="section-title text-center center">
+			<h2>DISCIPLINAS</h2>
+			<hr>
+			<div class="clearfix"></div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+		</div>
+		<div class="categories">
+			<ul class="cat">
+				<li>
+					<ol class="type">
+						<li><a href="#" data-filter="*" class="active">All</a></li>
+						<li><a href="#" data-filter=".web">Web Design</a></li>
+						<li><a href="#" data-filter=".app">App Development</a></li>
+						<li><a href="#" data-filter=".branding">Branding</a></li>
+					</ol>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<div class="row">
+			<div class="portfolio-items">
+				<div class="col-sm-6 col-md-3 col-lg-3 web">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="~/wwwroot/lib/Templates/img/portfolio/01.jpg" rel="prettyPhoto" />
+							<div class="hover-text">
+								<h4>Project Title</h4>
+								<small>Web Design</small>
+								<div class="clearfix"></div>
+							</div>
+							<img src="~/wwwroot/lib/Templates/img/portfolio/01.jpg" class="img-responsive" alt="Project Title">							
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 app">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/02.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>App Development</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/02.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 web">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/03.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>Web Design</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/03.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 web">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/04.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>Web Design</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/04.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 app">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/05.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>App Development</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/05.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 branding">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/06.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>Branding</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/06.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 branding app">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/07.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>App Development, Branding</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/07.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3 col-lg-3 web">
+					<div class="portfolio-item">
+						<div class="hover-bg">
+							<a href="img/portfolio/08.jpg" rel="prettyPhoto">
+								<div class="hover-text">
+									<h4>Project Title</h4>
+									<small>Web Design</small>
+									<div class="clearfix"></div>
+								</div>
+								<img src="img/portfolio/08.jpg" class="img-responsive" alt="Project Title">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>		
 
-
-<div class="container-fluid">
-
-		<div class="titulo_index"><h2>SEDE</h2></div>	
-		
-
-	<div class='row'>
-		<div class=" col-md-1"></div>
-		<div class="col-md-11" style="background-color: #f39c12; color:white; padding-left:15px; padding-right: 15px; padding:15px; padding-top:5px">
-			<div class="col-md-8">
-				<br />
-				<h3><b>Zapopan, Jal.</b></h3>
-				<br />
-				<h4 style="text-align: justify">
-					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-				</h4>
-				<br />
-				<h4 style="text-align: justify">
-					Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-				</h4>
+<!-- About Section -->
+<div id="about-section">
+	<div class="container">
+		<div class="section-title text-center center">
+			<h2>About Us</h2>
+			<hr>
+			<div class="clearfix"></div>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+		</div>
+		<div class="row">
+			<div class="col-md-6"> <img src="img/about.jpg" class="img-responsive"> </div>
+			<div class="col-md-6">
+				<div class="about-text">
+					<h4>Who We Are</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh ante facilisis bibendum.</p>
+					<h4>What We Do</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh ante facilisis bibendum.</p>
+					<h4>Why Choose Us</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Achievements Section -->
+<div id="achievements" class="section dark-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span class="count">210</span>
+					<h4>Happy clients</h4>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span class="count">9,500</span>
+					<h4>Working hours</h4>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span class="count">590</span>
+					<h4>Projects completed</h4>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span class="count">14</span>
+					<h4>Awards won</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Team Section -->
+<div id="team-section" class="text-center">
+	<div class="container">
+		<div class="section-title center">
+			<h2>Meet the Team</h2>
+			<hr>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+		</div>
+		<div id="row">
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">
+					<img src="img/team/01.jpg" alt="..." class="img-circle team-img">
+					<div class="caption">
+						<h3>John Doe</h3>
+						<p>Founder / CEO</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">					
+					<img src="~/lib/Templates/img/team/02.jpg" class="img-circle team-img"/>
+					<div class="caption">
+						<h3>Mike Doe</h3>
+						<p>Web Designer</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">
+					<img src="img/team/03.jpg" alt="..." class="img-circle team-img">
+					<div class="caption">
+						<h3>Jane Doe</h3>
+						<p>Creative Director</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">
+					<img src="img/team/04.jpg" alt="..." class="img-circle team-img">
+					<div class="caption">
+						<h3>Larry Show</h3>
+						<p>Project Manager</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Contact Section -->
+<div id="contact-section" class="text-center">
+	<div class="container">
+		<div class="section-title center">
+			<h2>Contact Us</h2>
+			<hr>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-4">
+				<i class="fa fa-map-marker"></i>
+				<p>
+					4321 California St,<br>
+					San Francisco, CA 12345
+				</p>
 			</div>
 			<div class="col-md-4">
-				<br />
-				<br />
-				<br />
-				<center><img alt="" src="~/images/zapopan.jpg" style="width:332px; height:auto; padding-top:6px"></center>
-				<h6>Basílica de Zapopan, Jal.</h6>
+				<i class="fa fa-envelope-o"></i>
+				<p>info@company.com</p>
 			</div>
+			<div class="col-md-4">
+				<i class="fa fa-phone"></i>
+				<p> +1 123 456 1234</p>
+			</div>
+			<hr>
+			<div class="clearfix"></div>
 		</div>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+		<div class="col-md-8 col-md-offset-2">
+			<h3>Leave us a message</h3>
+			<form name="sentMessage" id="contactForm" novalidate>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" id="name" class="form-control" placeholder="Name" required="required">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<input type="email" id="email" class="form-control" placeholder="Email" required="required">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+					<p class="help-block text-danger"></p>
+				</div>
+				<div id="success"></div>
+				<button type="submit" class="btn btn-default">Send Message</button>
+			</form>
+		</div>
 	</div>
-</div>
-<h2>PROXIMOS PARTIDOS</h2>
-<br />
-<br />
-<div class="container" style="padding-top:20px;">
-
-	<div class="col-lg-1"></div>
-	<div class="col-lg-3" style="background-color: #e74c3c; color:#ffffff">
-		<center>
-			<br />
-			<br />
-			<img src="~/images/descarga (2).jpg" alt="Selec. Argentina" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px;border-color: #2c3e50" />
-			<br />
-			<h3><b>VS</b></h3>
-			<br />
-			<img src="~/images/descarga.jpg" alt="Selec. Colombia" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px;border-color: #2c3e50" />
-			<h4>
-				<br /><b>
-					Argentina VS Colombia<br />
-					Domingo 03-Dic<br />
-					19:00
-					<br />
-				</b>
-			</h4>
-		</center>
-	</div>
-	<div class="col-lg-1"></div>
-	<div class="col-lg-3" style="background-color: #e74c3c; color:#ffffff">
-		<center>
-			<br />
-			<br />
-			<img src="~/images/29_subcategoria.jpg" alt="Selec. Uruguay" class="img-responsive" style="width:140px;height:128px;padding-top:10px;padding:10px;border-color: #2c3e50" />
-			<br />
-			<h3><b>VS</b></h3>
-			<br />
-			<img src="~/images/descarga (1).jpg" alt="Selec. Brasil" class="img-responsive" style="width:140px;height:128px;padding-top:10px;padding:10px;border-color: #2c3e50" />
-			<h4>
-				<br /><b>
-					Uruguay VS Brasil<br />
-					Sábado 02-Dic<br />
-					13:00
-					<br />
-				</b>
-			</h4>
-		</center>
-	</div>
-	<div class="col-lg-1"></div>
-	<div class="col-lg-3" style="background-color: #e74c3c; color:#ffffff">
-		<center>
-			<br />
-			<br />
-			<img src="~/images/seleccion-chilena.jpg" alt="Selec. Chile" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px;" />
-			<br />
-			<h3><b>VS</b></h3>
-			<br />
-			<img src="~/images/606897_escudo_fmf.jpg" alt="Selec. Mexico" class="img-responsive" style="width:140px;height:128px;padding:10px; padding-top: 0px; border-style: solid;border-color: #2c3e50" />
-			<h4>
-				<br /><b>
-					México VS Chile<br />
-					Jueves 30-Nov<br />
-					17:00
-					<br />
-				</b>
-			</h4>
-		</center>
-	</div>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-</div>
-
-<h2>RESULTADOS</h2>
-<br />
-<br />
-<div class="container-fluid">
-	<div>
-		<table class="table table-striped table-hover " style="border-style: solid; border-color:white">
-			<tr>
-				<td class="success"><center><img src="~/images/atleta2.jpg" alt="Atletismo" class="img-responsive" style="width:140px;height:140px;" /></center></td>
-				<td class="warning"><center><img src="~/images/814520888.jpg" alt="Basquetbol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
-				<td style="background-color:#2c3e50"><center><img src="~/images/jugador-de-beisbol-con-el-bate-y-la-pelota_318-37264.jpg" alt="Beisbol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
-				<td class="danger"><center><img src="~/images/jugador-de-futbol-corriendo-detras-de-la-pelota_318-43308.jpg" alt="Futbol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
-				<td class="info"><center><img src="~/images/voleibol-silueta_318-53915.jpg" alt="Voleibol" class="img-responsive" style="width:140px;height:140px;" /></center></td>
-			</tr>
-			<thead>
-				<tr>
-					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Atletismo</a></b></h4></center></th>
-					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Basquetbol</a></b></h4></center></th>
-					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Beisbol</a></b></h4></center></th>
-					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Fútbol</a></b></h4></center></th>
-					<th><center><h4><b><a asp-controller="Home" asp-action="Resultados">Voleibol</a></b></h4></center></th>
-				</tr>
-			</thead>
-		</table>
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
-		<br />
+</div>	
+<div id="social-section">
+	<div class="container">
+		<div class="social">
+			<ul>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+				<li><a href="#"><i class="fa fa-github"></i></a></li>
+				<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
 
-<h2>SÍGUENOS</h2>
-<br />
-<br />
-<div class="container" style="padding-top:20px;">
 
-	<div class="col-lg-1"></div>
-	<div class="col-lg-3" style="background-color: #3b5998; color:#ffffff">
-		<br />
-		<a href="https://www.facebook.com/">
-			<img src="~/images/LOGO FACEBOOK.png" alt="FACEBOOK" style="width:34px; height:35px;  " />
-		</a>
-		<br />
-		<br />
-		<br />
-		<h4 style="text-align:right"><b>FACEBOOK</b></h4>
-	</div>
-	<div class="col-lg-1"></div>
-	<div class="col-lg-3" style="background-color: #55acee; color:#ffffff">
-
-		<br /><a href="https://www.facebook.com/">
-			<img src="~/images/LOGO TWITTER.png" alt="FACEBOOK" style="width:34px; height:36px; " />
-		</a>
-		<br />
-		<br />
-		<br />
-		<h4 style="text-align:right"><b>TWITTER</b></h4>
-	</div>
-	<div class="col-lg-1"></div>
-	<div class="col-lg-3" style="background-color: #e52d27; color:#ffffff">
-		<br />
-		<a href="https://www.facebook.com/">
-			<img src="~/images/LOGO YOUTUBE.png" alt="FACEBOOK" style="width:34px; height:39px; " />
-		</a>
-		<br />
-		<br />
-		<br />
-		<h4 style="text-align:right"><b>YOUTUBE</b></h4>
-	</div>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-</div>
-
-<script>
-	$(document).ready(function(){
-
-	var clickEvent = false;
-	$('#myCarousel2').carousel({
-		interval:   4000
-	}).on('click', '.list-group li', function() {
-			clickEvent = true;
-			$('.list-group li').removeClass('active');
-			$(this).addClass('active');
-	}).on('slid.bs.carousel', function(e) {
-		if(!clickEvent) {
-			var count = $('.list-group').children().length -1;
-			var current = $('.list-group li.active');
-			current.removeClass('active').next().addClass('active');
-			var id = parseInt(current.data('slide-to'));
-			if(count == id) {
-				$('.list-group li').first().addClass('active');
-			}
-		}
-		clickEvent = false;
-	});
-})
-
-$(window).load(function() {
-	var boxheight = $('#myCarousel2 .carousel-inner').innerHeight();
-	var itemlength = $('#myCarousel2 .item').length;
-	var triggerheight = Math.round(boxheight/itemlength+1);
-	$('#myCarousel2 .list-group-item').outerHeight(triggerheight);
-});
-</script>
