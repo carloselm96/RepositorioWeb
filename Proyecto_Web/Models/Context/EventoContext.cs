@@ -148,6 +148,32 @@ namespace Proyecto_Web.Models.Context
             return id;
         }
 
+        public Evento EventoActual()
+        {
+            Evento evento = new Evento();
+
+            string cmdText = "select * from evento where evento.Fecha_ini between NOW() and '2040-06-15 11:00:00' order by evento.Fecha_ini limit 1;";
+            MySqlConnection my = new MySqlConnection(ConnectionString);
+            my.Open();
+
+
+            using (MySqlCommand command = new MySqlCommand(cmdText, my))
+            {                
+
+                var reader = command.ExecuteReader();
+                reader.Read();
+
+                if (reader.HasRows)
+                {
+                    evento.id = reader.GetInt16("Id_evento");
+                    evento.nombre = reader.GetString("Nombre_evento");
+                    evento.fecha_inicio = reader.GetDateTime("Fecha_ini").ToString("yyyy-MM-dd");
+                    evento.fecha_final = reader.GetDateTime("Fecha_final").ToString("yyyy-MM-dd");
+                }
+            }
+            my.Close();
+            return evento;
+        }
 
 
     }

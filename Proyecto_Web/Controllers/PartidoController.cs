@@ -71,7 +71,7 @@ namespace Proyecto_Web.Controllers
         }
 
         [Authorize]        
-        public IActionResult Edit(string id)
+        public IActionResult Edit(int id)
         {            
             EquipoContext equipos = HttpContext.RequestServices.GetService(typeof(EquipoContext)) as EquipoContext;
             DisciplinaContext disciplinas = HttpContext.RequestServices.GetService(typeof(DisciplinaContext)) as DisciplinaContext;
@@ -111,16 +111,33 @@ namespace Proyecto_Web.Controllers
             return RedirectToAction("Index", "Partido", new { result = "Failure" });
         }
         [Authorize]        
-        public IActionResult Details(int id)
+        public IActionResult Details(int id, string s)
+        {            
+            PartidoContext context = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
+            Partido partido = context.GetPartido(id);
+            if (!String.IsNullOrEmpty(s))
+            {
+                ViewBag.result = "Success";
+            }
+            if (partido.equipo1==null)
+            {
+                return RedirectToAction("Index", "Partido");
+            }
+            ViewBag.partido = partido;
+            return View();                        
+        }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Registrar(int id,int r1, int r2)
         {
             PartidoContext context = HttpContext.RequestServices.GetService(typeof(PartidoContext)) as PartidoContext;
-            //bool result = context.GetPartido();
-            /*if (result)
+            bool result = context.IngresarResultados(id, r1, r2);
+            if (result == true)
             {
-                return RedirectToAction("Index", "Partido", new { result = "Success" });
-            }*/
-            return RedirectToAction("Index", "Partido", new { result = "Failure" });
-        }
+                return RedirectToAction("Details", "Partido", new { id = id, s="Success" });
+            }
+            return RedirectToAction("Details", "Partido", new { id=id });
 
+        }
     }
 }

@@ -44,6 +44,8 @@ namespace Proyecto_Web.Models.Context
                 partido.evento = new Evento();
                 partido.evento.id = reader.GetInt16("Id_evento");
                 partido.evento.nombre = reader.GetString("Nombre_evento");
+                partido.r1 = reader.GetInt32("R1");
+                partido.r1 = reader.GetInt32("R2");
                 result.Add(partido);
             }
             command.Dispose();
@@ -51,7 +53,7 @@ namespace Proyecto_Web.Models.Context
             return result;
         }
 
-        public Partido GetPartido(string id)
+        public Partido GetPartido(int id)
         {
             Partido partido = new Partido();
             string cmdText = "select * from consulta_partidos where Id_partido=@id;";
@@ -84,6 +86,8 @@ namespace Proyecto_Web.Models.Context
                     partido.ubicacion.nombre = reader.GetString("ubicacion");
                     partido.ubicacion.longitud = reader.GetString("longitud");
                     partido.ubicacion.latitud = reader.GetString("Latitud");
+                    partido.r1 = reader.GetInt32("R1");
+                    partido.r2 = reader.GetInt32("R2");
                 }
             }
 
@@ -153,7 +157,7 @@ namespace Proyecto_Web.Models.Context
         }
         public bool IngresarResultados(int id, int r1, int r2)
         {
-            string cmdText = "UPDATE partido SET R1='@r1', R2='@r2' where Id_partido=@id";
+            string cmdText = "UPDATE partido SET R1=@r1, R2=@r2 where Id_partido=@id";
             MySqlConnection my = new MySqlConnection(ConnectionString);
             my.Open();
             bool result = false;
