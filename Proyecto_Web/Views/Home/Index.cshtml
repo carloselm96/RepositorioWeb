@@ -5,418 +5,486 @@
 }
 
 
+
 <div id="myCarousel" class="carousel slide container-fluid" data-ride="carousel" data-interval="6000">
-	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
-		<li data-target="#myCarousel" data-slide-to="3"></li>
-	</ol>
-	<div class="carousel-inner carousel-helper" role="listbox">
-		@foreach (Evento item in ViewBag.eventos)
-		{
-			if (i == 0)
-			{
-				<div class="item active img-helper">
-					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
-					<div class="carousel-caption" role="option">
-						<p>
-							<h2 style="color:black; text-transform: uppercase;">@item.nombre</h2>
-						</p>
-					</div>
-				</div>    i = i + 1;
-			}
-			else
-			{
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner carousel-helper" role="listbox">
+        @foreach (Evento item in ViewBag.eventos)
+        {
+            if (i == 0)
+            {
+                <div class="item active img-helper">
+                    <center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
+                    <div class="carousel-caption" role="option">
+                        <p>
+                            <h2 style="color:black; text-transform: uppercase;">@item.nombre</h2>
+                        </p>
+                    </div>
+                </div>    i = i + 1;
+            }
+            else
+            {
 
-				<div class="item img-helper">
-					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
-					<div class="carousel-caption" role="option">
-						<p>
-							<h2 style="color:black; text-transform: uppercase;">@item.nombre</h2>
-						</p>
+                <div class="item img-helper">
+                    <center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
+                    <div class="carousel-caption" role="option">
+                        <p>
+                            <h2 style="color:black; text-transform: uppercase;">@item.nombre</h2>
+                        </p>
 
-					</div>
-				</div>}
+                    </div>
+                </div>}
 
-		}
+        }
 
-	</div>
-	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
 <!--<header class="text-center" name="home">
-	<div class="intro-text">
-		<h1>Welcome to <strong>Helios</strong></h1>
-		<p>We are a full-service integrated creative agency</p>
-		<a href="#services-section" class="btn btn-default btn-lg page-scroll">LEARN MORE</a>
-	</div>
+    <div class="intro-text">
+        <h1>Welcome to <strong>Helios</strong></h1>
+        <p>We are a full-service integrated creative agency</p>
+        <a href="#services-section" class="btn btn-default btn-lg page-scroll">LEARN MORE</a>
+    </div>
 </header>-->
-
 <!--Service section-->
+<a name="disc"> </a>
 <div id="services-section" class="text-center">
-	<div class="container">
-		<div class="section-title center">
-			<h2>DISCIPLINAS</h2>
-			<hr>
-			<div class="clearfix"></div>
-			<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus. Eleifend pellentesque natoque faucibus magna ut etiam.</p>
-		</div>
-		<div class="space"></div>
-		<div class="row">
-			<div class="col-md-1 col-sm-8 service"></div>
-			<div class="col-md-2 col-sm-8 service">
-				<i class="fa fa-desktop"></i>
-				<h4>BEISBOL</h4>
-				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
-			</div>
-			<div class="col-md-2 col-sm-8 service">
-				<i class="fa fa-gears"></i>
-				<h4>FUTBOL</h4>
-				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
-			</div>
-			<div class="col-md-2 col-sm-8 service">
-				<i class="fa fa-rocket"></i>
-				<h4>BASQUETBALL</h4>
-				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
-			</div>
-			<div class="col-md-2 col-sm-8 service">
-				<i class="fa fa-line-chart"></i>
-				<h4>ATLETISMO</h4>
-				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
-			</div>
-			<div class="col-md-2 col-sm-8 service">
-				<i class="fa fa-line-chart"></i>
-				<h4>VOLEIBOL</h4>
-				<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="section-title center">
+            <h2>DISCIPLINAS</h2>
+            <hr>
+            <div class="clearfix"></div>
+            <p>El torneo Azucarero se compone de 5 disciplinas que incluyen a los deportes mas practicados.</p>
+        </div>
+        <div class="space"></div>
+        <div class="row">
+            <div class="col-md-1 col-sm-8 service"></div>
+            <div class="col-md-2 col-sm-8 service">
+                <i class="fa fa-desktop"></i>
+                <h4>BEISBOL</h4>
+                <img src="~/images/beis.jpg" style="width: 40px; height:40px;" />
+                <p>El deporte Rey se compone de miles de fans y equipos tanto profesionales como amateurs.</p>
+            </div>
+            <div class="col-md-2 col-sm-8 service">
+                <i class="fa fa-gears"></i>
+                <h4>FUTBOL</h4>
+                <img src="~/images/fut2.jpg" style="width: 40px; height:40px;" />
+                <p>El deporte mas practicados del momento, con miles de fanaticos y ligas especializadas.</p>
+            </div>
+            <div class="col-md-2 col-sm-8 service">
+                <i class="fa fa-rocket"></i>
+                <h4>BASQUETBALL</h4>
+                <img src="~/images/bas.jpg" style="width: 40px; height:40px;" />
+                <p>El deporte Flash, la velocidad de contrataque es lo que define a este deporte.</p>
+            </div>
+            <div class="col-md-2 col-sm-8 service">
+                <i class="fa fa-line-chart"></i>
+                <h4>ATLETISMO</h4>
+                <img src="~/images/ru.jpg" style="width: 40px; height:40px;" />
+                <p>Usain Bolt es la estrella definitiva de este deporte, es uno de los deportes mas rapidos del mundo con competencias que se definen en por milisegundos.</p>
+            </div>
+            <div class="col-md-2 col-sm-8 service">
+                <i class="fa fa-line-chart"></i>
+                <h4>VOLEIBOL</h4>
+                <img src="~/images/voley.jpg" style="width: 40px; height:40px;" />
+                <p>Un deporte de gran exigencia fisica y mental, saber trabajar en equipo es lo escencial.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Portfolio Section -->
+<a name="gallery"> </a>
 <div id="works-section">
-	<div class="container">
-		<!-- Container -->
-		<div class="section-title text-center center">
-			<h2>DISCIPLINAS</h2>
-			<hr>
-			<div class="clearfix"></div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-		</div>
-		<div class="categories">
-			<ul class="cat">
-				<li>
-					<ol class="type">
-						<li><a href="#" data-filter="*" class="active">All</a></li>
-						<li><a href="#" data-filter=".web">Web Design</a></li>
-						<li><a href="#" data-filter=".app">App Development</a></li>
-						<li><a href="#" data-filter=".branding">Branding</a></li>
-					</ol>
-				</li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<div class="row">
-			<div class="portfolio-items">
-				<div class="col-sm-6 col-md-3 col-lg-3 web">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="~/wwwroot/lib/Templates/img/portfolio/01.jpg" rel="prettyPhoto" />
-							<div class="hover-text">
-								<h4>Project Title</h4>
-								<small>Web Design</small>
-								<div class="clearfix"></div>
-							</div>
-							<img src="~/wwwroot/lib/Templates/img/portfolio/01.jpg" class="img-responsive" alt="Project Title">							
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 app">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/02.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>App Development</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/02.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 web">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/03.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>Web Design</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/03.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 web">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/04.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>Web Design</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/04.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 app">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/05.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>App Development</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/05.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 branding">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/06.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>Branding</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/06.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 branding app">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/07.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>App Development, Branding</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/07.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm-6 col-md-3 col-lg-3 web">
-					<div class="portfolio-item">
-						<div class="hover-bg">
-							<a href="img/portfolio/08.jpg" rel="prettyPhoto">
-								<div class="hover-text">
-									<h4>Project Title</h4>
-									<small>Web Design</small>
-									<div class="clearfix"></div>
-								</div>
-								<img src="img/portfolio/08.jpg" class="img-responsive" alt="Project Title">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>		
+    <div class="container">
+        <!-- Container -->
+        <div class="section-title text-center center">
+            <h2>GALERIA</h2>
+            <hr>
+            <div class="clearfix"></div>
+        </div>
+        <div class="categories">
+            <ul class="cat">
+                <li>
+                    <ol class="type">
+                        <li><a href="#" data-filter="*" class="active">All</a></li>
+                        <li><a href="#" data-filter=".web">Antiguas</a></li>
+                        <li><a href="#" data-filter=".app">Competencias</a></li>
+                        <li><a href="#" data-filter=".branding">Ganadores</a></li>
+                    </ol>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="row">
+            <div class="portfolio-items">
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/1.jpg" rel="prettyPhoto" />
+                            <div class="hover-text">
+                                <h4>Atletismo </h4>
+                                <small>Fotos antiguas</small>
+                                <div class="clearfix"></div>
+                            </div>
 
-<!-- About Section -->
+                            <img src="~/images/1.jpg" class="img-responsive" alt="Project Title">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/eugene.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>atletismo</h4>
+                                    <small>Competencias</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/eugene.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/2.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Basketbol</h4>
+                                    <small>Fotos Antiguas</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/2.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/3.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>beisbol</h4>
+                                    <small>Fotos Antiguas</small>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <img src="~/images/3.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/volei_1.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>voleybol</h4>
+                                    <small>Competencias</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/volei_1.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 branding">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/beis_1.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Medallero </h4>
+                                    <small>Ganadores Beisbol</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/beis_1.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/futbol_3.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Futbol</h4>
+                                    <small>Competencias</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/futbol_3.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/4.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Futbol</h4>
+                                    <small>Fotos Antiguas</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/4.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/beis_2.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Beisbol</h4>
+                                    <small>Competencias</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/beis_2.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 branding">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/futbol_4.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Medallero </h4>
+                                    <small>Ganadores futbol </small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/futbol_4.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 web">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/5.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Voleybol</h4>
+                                    <small>Fotos Antiguas</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/5.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-lg-3 app">
+                    <div class="portfolio-item">
+                        <div class="hover-bg">
+                            <a href="~/images/basketbol.jpg" rel="prettyPhoto">
+                                <div class="hover-text">
+                                    <h4>Basketbol</h4>
+                                    <small>Competencias</small>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <img src="~/images/basketbol.jpg" class="img-responsive" alt="Project Title">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Section
+<a name="us"></a>
 <div id="about-section">
-	<div class="container">
-		<div class="section-title text-center center">
-			<h2>About Us</h2>
-			<hr>
-			<div class="clearfix"></div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-		</div>
-		<div class="row">
-			<div class="col-md-6"> <img src="img/about.jpg" class="img-responsive"> </div>
-			<div class="col-md-6">
-				<div class="about-text">
-					<h4>Who We Are</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh ante facilisis bibendum.</p>
-					<h4>What We Do</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh ante facilisis bibendum.</p>
-					<h4>Why Choose Us</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at.</p>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">-->
+<div class="section-title text-center center">
+    <h2>Sobre nosotros </h2>
+</div>
+<!--<hr>
+            <div class="clearfix"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+        </div>
+        <div class="row" style="background-color:"#0BC487" >
+            <div class="col-md-6"  > <img src="~/images/hugo.jpg" class="img-responsive" ></div>
+            <div class="col-md-6">
+                <div class="about-text">
+                    <h4>Who We Are</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh ante facilisis bibendum.</p>
+                    <h4>What We Do</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh ante facilisis bibendum.</p>
+                    <h4>Why Choose Us</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="container-fluid">
+
+    <div class='row'>
+        <div class=" col-md-1"></div>
+        <div class="col-md-11" style="background-color: #0BC487; color:white; padding-left:15px; padding-right: 15px; padding:15px; padding-top:5px; margin-bottom:40px;">
+            <div class="col-md-8 espaciados">
+                <h3><b>Primeros juegos.</b></h3>
+
+                <p>
+                    Durante el congreso Olímpico que coincidió con la celebración de los juegos Olímpicos de 1926 en París,
+                    Francia, allí los miembros del Comité Olímpico Internacional de Cuba, Guatemala y México propusieron que
+                    se establecieran juegos regionales en los que participarían los países de Centroamérica. Estos juegos se hicieron
+                    realidad dos años después cuando la Ciudad de México fue anfitriona de los primeros Juegos Centroamericanos.
+                </p>
+                <p>
+                    El Congreso eligió a Boca del rio Veracruz como la sede de los primeros Juegos
+                    Azucareros en 2013 pero la motivos desconocidos obligo la postergación de dichos juegos. A pesar de que los Juegos Azucareros de 2013
+                    nunca se llevaron a cabo al menos un poster fue creado para esa ocasión.
+                </p>
+                <p>
+                    Los primeros Juegos Azucareros se inauguraron en Boca del rio Veracruz el 23 de octubre de 2015. Participaron más de 2.500 atletas provenientes de 22 distritos.
+                    La organización que gobierna los juegos es la Organización Deportiva De azucareros.
+                    En la actualidad la organización se integra por 42 distritos de mexico, oaxaca e hidalgo. Las lengua oficial es el español .
+                </p>
+            </div>
+            <div class="col-md-4">
+
+                <center><img alt="" src="~/images/hugo.jpg" style="width:332px; height:auto; padding-top:6px; margin-top:60px; margin-bottom:10px;"></center>
+                <h6>Unidad deportiva Hugo Sanchez, Boca del rio  </h6>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Achievements Section -->
 <div id="achievements" class="section dark-bg">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3 col-sm-3">
-				<div class="achievement-box">
-					<span class="count">210</span>
-					<h4>Happy clients</h4>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<div class="achievement-box">
-					<span class="count">9,500</span>
-					<h4>Working hours</h4>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<div class="achievement-box">
-					<span class="count">590</span>
-					<h4>Projects completed</h4>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<div class="achievement-box">
-					<span class="count">14</span>
-					<h4>Awards won</h4>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3">
+                <div class="achievement-box">
+                    <span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">1-1-2017</span>
+                    <h4>Fecha</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="achievement-box">
+                    <span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">123</span>
+                    <h4>Atletas</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="achievement-box">
+                    <span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">14</span>
+                    <h4>Gremios</h4>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3">
+                <div class="achievement-box">
+                    <span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">CD, Mex.</span>
+                    <h4>sede</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- Team Section -->
 <div id="team-section" class="text-center">
-	<div class="container">
-		<div class="section-title center">
-			<h2>Meet the Team</h2>
-			<hr>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-		</div>
-		<div id="row">
-			<div class="col-md-3 col-sm-6 team">
-				<div class="thumbnail">
-					<img src="img/team/01.jpg" alt="..." class="img-circle team-img">
-					<div class="caption">
-						<h3>John Doe</h3>
-						<p>Founder / CEO</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 team">
-				<div class="thumbnail">					
-					<img src="~/lib/Templates/img/team/02.jpg" class="img-circle team-img"/>
-					<div class="caption">
-						<h3>Mike Doe</h3>
-						<p>Web Designer</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 team">
-				<div class="thumbnail">
-					<img src="img/team/03.jpg" alt="..." class="img-circle team-img">
-					<div class="caption">
-						<h3>Jane Doe</h3>
-						<p>Creative Director</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-sm-6 team">
-				<div class="thumbnail">
-					<img src="img/team/04.jpg" alt="..." class="img-circle team-img">
-					<div class="caption">
-						<h3>Larry Show</h3>
-						<p>Project Manager</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="section-title center">
+            <h2>Meet the Team</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+        </div>
+        <div id="row">
+            <div class="col-md-3 col-sm-6 team">
+                <div class="thumbnail">
+                    <img src="~/lib/Templates/img/team/01.jpg" alt="..." class="img-circle team-img">
+                    <div class="caption">
+                        <h3>John Doe</h3>
+                        <p>Founder / CEO</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 team">
+                <div class="thumbnail">
+                    <img src="~/lib/Templates/img/team/02.jpg" class="img-circle team-img" />
+                    <div class="caption">
+                        <h3>Mike Doe</h3>
+                        <p>Web Designer</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 team">
+                <div class="thumbnail">
+                    <img src="~/lib/Templates/img/team/03.jpg" alt="..." class="img-circle team-img">
+                    <div class="caption">
+                        <h3>Jane Doe</h3>
+                        <p>Creative Director</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 team">
+                <div class="thumbnail">
+                    <img src="~/lib/Templates/img/team/04.jpg" alt="..." class="img-circle team-img">
+                    <div class="caption">
+                        <h3>Larry Show</h3>
+                        <p>Project Manager</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- Contact Section -->
-<div id="contact-section" class="text-center">
-	<div class="container">
-		<div class="section-title center">
-			<h2>Contact Us</h2>
-			<hr>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="col-md-4">
-				<i class="fa fa-map-marker"></i>
-				<p>
-					4321 California St,<br>
-					San Francisco, CA 12345
-				</p>
-			</div>
-			<div class="col-md-4">
-				<i class="fa fa-envelope-o"></i>
-				<p>info@company.com</p>
-			</div>
-			<div class="col-md-4">
-				<i class="fa fa-phone"></i>
-				<p> +1 123 456 1234</p>
-			</div>
-			<hr>
-			<div class="clearfix"></div>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			<h3>Leave us a message</h3>
-			<form name="sentMessage" id="contactForm" novalidate>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-							<input type="text" id="name" class="form-control" placeholder="Name" required="required">
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
-							<input type="email" id="email" class="form-control" placeholder="Email" required="required">
-							<p class="help-block text-danger"></p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
-					<p class="help-block text-danger"></p>
-				</div>
-				<div id="success"></div>
-				<button type="submit" class="btn btn-default">Send Message</button>
-			</form>
-		</div>
-	</div>
-</div>	
-<div id="social-section">
-	<div class="container">
-		<div class="social">
-			<ul>
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-				<li><a href="#"><i class="fa fa-github"></i></a></li>
-				<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-				<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-			</ul>
-		</div>
-	</div>
+<div id="team-section" class="container text-center">
+    <div class="section-title center">
+        <h2>Follow us</h2>
+        <hr>
+    </div>
+    <div class="social">
+        <div class="col-md-1"></div>
+        <div class="col-md-3" style="background-color: #3b5998; color:#ffffff">
+            <br />
+            <a href="https://www.facebook.com/">
+                <img src="~/images/LOGO FACEBOOK.png" alt="FACEBOOK" style="width:34px; height:35px;  " />
+            </a>
+            <br />
+            <br />
+            <h4 style="text-align:right; color:white"><b>FACEBOOK</b></h4>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3" style="background-color: #55acee; color:#ffffff">
+
+            <br /><a href="https://www.facebook.com/">
+                <img src="~/images/LOGO TWITTER.png" alt="FACEBOOK" style="width:34px; height:36px; " />
+            </a>
+            <br />
+            <br />
+            <h4 style="text-align:right; color:white"><b>TWITTER</b></h4>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3" style="background-color: #e52d27; color:#ffffff">
+            <br />
+            <a href="https://www.facebook.com/">
+                <img src="~/images/LOGO YOUTUBE.png" alt="FACEBOOK" style="width:34px; height:39px; " />
+            </a>
+            <br />
+            <br />
+            <h4 style="text-align:right;  color:white"><b>YOUTUBE</b></h4>
+        </div>
+    </div>
 </div>
-
-
 

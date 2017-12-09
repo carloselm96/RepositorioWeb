@@ -37,18 +37,21 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">                    
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Eventos <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="disc" class="navbar-brand">
+                        <p class="texto">Disciplinas</p>
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="gallery" class="navbar-brand">
+                        <p class="texto">Galeria</p>
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="info" class="navbar-brand">
+                        <p class="texto">Evento<br /> Actual</p>
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="eqi" class="navbar-brand">
+                        <p class="texto">Equipo</p>
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" asp-fragment="us" class="navbar-brand">
+                        <p class="texto">Sobre nosotros </p>
+                    </a>                    
                 </ul>
                 
                 
