@@ -7,6 +7,7 @@
 
 
 <div id="myCarousel" class="carousel slide container-fluid" data-ride="carousel" data-interval="6000">
+<<<<<<< HEAD
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -39,6 +40,41 @@
 
                     </div>
                 </div>}
+=======
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+	</ol>
+	<div class="carousel-inner carousel-helper" role="listbox">
+		@foreach (Evento item in ViewBag.eventos)
+		{
+			if (i == 0)
+			{
+				<div class="item active img-helper">
+					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
+                    <div class="carousel-caption" role="option">
+                        <p>
+                            <a href="Home/Resultados.cshtml" class="btn btn-primary">Detalles</a>
+                        </p>
+
+                    </div>
+				</div>    i = i + 1;
+			}
+			else
+			{
+
+				<div class="item img-helper">
+					<center><img src="~/images/@item.url_imagen" alt="@item.imagen_id" class="img-responsive" style="height:auto; width:auto" /></center>
+                    <div class="carousel-caption" role="option">
+                        <p>
+                            <a href="Home/Resultados.cshtml" class="btn btn-primary">Detalles</a>
+                        </p>
+
+                    </div>
+				</div>}
+>>>>>>> 0c073e49b2768eac10f47632e5bad8569b61dd33
 
         }
 
@@ -368,6 +404,7 @@
 </div>
 <!-- Achievements Section -->
 <div id="achievements" class="section dark-bg">
+<<<<<<< HEAD
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-3">
@@ -388,12 +425,35 @@
                     <h4>Gremios</h4>
                 </div>
             </div>
+=======
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">1-1-2017</span>
+					<h4>Fecha</h4>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">123</span>
+					<h4>Atletas</h4>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<div class="achievement-box">
+					<span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">14</span>
+					<h4>Gremios</h4>
+				</div>
+			</div>
+>>>>>>> 0c073e49b2768eac10f47632e5bad8569b61dd33
             <div class="col-md-3 col-sm-3">
                 <div class="achievement-box">
                     <span style="color: #fff;font-size: 50px;font-weight: 500;display: block;">CD, Mex.</span>
                     <h4>sede</h4>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
     </div>
 </div>
@@ -487,4 +547,129 @@
         </div>
     </div>
 </div>
+=======
+		</div>
+	</div>
+</div>
+<!-- Team Section -->
+<div id="team-section" class="text-center">
+	<div class="container">
+		<div class="section-title center">
+			<h2>Meet the Team</h2>
+			<hr>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+		</div>
+		<div id="row">
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">
+					<img src="~/lib/Templates/img/team/01.jpg" alt="..." class="img-circle team-img">
+					<div class="caption">
+						<h3>John Doe</h3>
+						<p>Founder / CEO</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">					
+					<img src="~/lib/Templates/img/team/02.jpg" class="img-circle team-img"/>
+					<div class="caption">
+						<h3>Mike Doe</h3>
+						<p>Web Designer</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">
+					<img src="~/lib/Templates/img/team/03.jpg" alt="..." class="img-circle team-img">
+					<div class="caption">
+						<h3>Jane Doe</h3>
+						<p>Creative Director</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6 team">
+				<div class="thumbnail">
+					<img src="~/lib/Templates/img/team/04.jpg" alt="..." class="img-circle team-img">
+					<div class="caption">
+						<h3>Larry Show</h3>
+						<p>Project Manager</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Contact Section -->
+<div id="contact-section" class="text-center">
+	<div class="container">
+		<div class="section-title center">
+			<h2>Contact Us</h2>
+			<hr>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-4">
+				<i class="fa fa-map-marker"></i>
+				<p>
+					4321 California St,<br>
+					San Francisco, CA 12345
+				</p>
+			</div>
+			<div class="col-md-4">
+				<i class="fa fa-envelope-o"></i>
+				<p>info@company.com</p>
+			</div>
+			<div class="col-md-4">
+				<i class="fa fa-phone"></i>
+				<p> +1 123 456 1234</p>
+			</div>
+			<hr>
+			<div class="clearfix"></div>
+		</div>
+		
+	</div>
+</div>	
+	<div id="team-section"class="container text-center">
+        <div class="section-title center">
+            <h2>Follow us</h2>
+            <hr>
+        </div>
+		<div class="social">
+            <div class="col-md-1"></div>
+            <div class="col-md-3" style="background-color: #3b5998; color:#ffffff">
+                <br />
+                <a href="https://www.facebook.com/">
+                    <img src="~/images/LOGO FACEBOOK.png" alt="FACEBOOK" style="width:34px; height:35px;  " />
+                </a>
+                <br />
+                <br />
+                <h4 style="text-align:right; color:white"><b>FACEBOOK</b></h4>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3" style="background-color: #55acee; color:#ffffff">
+
+                <br /><a href="https://www.facebook.com/">
+                    <img src="~/images/LOGO TWITTER.png" alt="FACEBOOK" style="width:34px; height:36px; " />
+                </a>
+                <br />
+                <br />
+                <h4 style="text-align:right; color:white"><b>TWITTER</b></h4>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-3" style="background-color: #e52d27; color:#ffffff">
+                <br />
+                <a href="https://www.facebook.com/">
+                    <img src="~/images/LOGO YOUTUBE.png" alt="FACEBOOK" style="width:34px; height:39px; " />
+                </a>
+                <br />
+                <br />
+                <h4 style="text-align:right;  color:white"><b>YOUTUBE</b></h4>
+            </div>
+		</div>
+	</div>
+>>>>>>> 0c073e49b2768eac10f47632e5bad8569b61dd33
 

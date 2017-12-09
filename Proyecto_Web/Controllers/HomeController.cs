@@ -15,7 +15,6 @@ namespace Proyecto_Web.Controllers
         {
             EventoContext context = HttpContext.RequestServices.GetService(typeof(EventoContext)) as EventoContext;
             ViewBag.eventos = context.getEventos();
-            ViewBag.eventoact = context.EventoActual();
             return View();
         }
 
